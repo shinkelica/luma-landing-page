@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luma - Instagram Bot Agent for Beauty Salons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>Luma</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Početna</a></li>
+                <li><a href="#features">Funkcije</a></li>
+                <li><a href="#pricing">Cene</a></li>
+                <li><a href="#testimonials">Iskustva</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Automatizujte Instagram za Vaš Salon</h1>
+                <p>AI-powered Instagram bot koji vodi razgovore sa klijentima, zakazuje termine i razvija vaš biznis 24/7</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Probajte Besplatno</button>
+                    <button class="btn-secondary">Pogledajte Demo</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phones-carousel">
+                    <div class="phone-container active" id="instagramPhone">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="instagram-chat">
+                                    <div class="chat-header">
+                                        <div class="header-left">
+                                            <i class="fas fa-arrow-left"></i>
+                                            <div class="profile-info">
+                                                <div class="profile-pic"></div>
+                                                <div class="profile-details">
+                                                    <span class="username">luksuzni_salon</span>
+                                                    <span class="status">Aktivan pre 5min</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header-right">
+                                        </div>
+                                    </div>
+                                    <div class="chat-messages" id="chatMessages">
+                                        <div class="date-separator">
+                                            <span>Danas</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-input">
+                                        <div class="input-container">
+                                            <i class="far fa-smile"></i>
+                                            <input type="text" placeholder="Poruka..." readonly>
+                                            <i class="fas fa-heart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="phone-container" id="calendarPhone">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="calendar-app">
+                                    <div class="calendar-header">
+                                        <div class="header-top">
+                                            <span class="time">19:05</span>
+                                            <div class="status-icons">
+                                                <i class="fas fa-signal"></i>
+                                                <i class="fas fa-wifi"></i>
+                                                <span class="battery">40</span>
+                                            </div>
+                                        </div>
+                                        <div class="calendar-nav">
+                                            <i class="fas fa-chevron-left"></i>
+                                            <h2>September <i class="fas fa-chevron-down"></i></h2>
+                                            <i class="fas fa-search"></i>
+                                            <div class="calendar-date">21</div>
+                                            <div class="profile-circle">S</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calendar-content">
+                                        <div class="date-header">
+                                            <span class="day-name">TUE</span>
+                                            <span class="day-number">2</span>
+                                        </div>
+                                        
+                                        <div class="time-slots">
+                                            <div class="time-slot">
+                                                <span class="time-label">05:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">06:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">07:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">08:00</span>
+                                            </div>
+                                            <div class="time-slot appointment">
+                                                <span class="time-label">09:00</span>
+                                                <div class="appointment-block">
+                                                    <div class="appointment-title">Korekcija – tuđi rad</div>
+                                                    <div class="appointment-location">Beauty Lux, Kraljevica Marka 1, Novi Sad</div>
+                                                </div>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">10:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">11:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">12:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">13:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">14:00</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time-label">15:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calendar-add-button">
+                                        <div class="add-icon">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="phone-container" id="whatsappPhone">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="whatsapp-chat">
+                                    <div class="whatsapp-header">
+                                        <div class="header-top">
+                                            <span class="time">19:43</span>
+                                            <div class="status-icons">
+                                                <i class="fas fa-signal"></i>
+                                                <i class="fas fa-wifi"></i>
+                                                <span class="battery">37</span>
+                                            </div>
+                                        </div>
+                                        <div class="chat-header-info">
+                                            <i class="fas fa-arrow-left"></i>
+                                            <div class="contact-info">
+                                                <div class="contact-avatar"></div>
+                                                <span class="contact-name">Phone number</span>
+                                            </div>
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="whatsapp-messages" id="whatsappMessages">
+                                        <div class="date-separator">
+                                            <span>Sun, 7 Sep</span>
+                                        </div>
+                                        
+                                        <div class="whatsapp-message received">
+                                            <div class="message-content">
+                                                <div class="message-image">
+                                                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=200&h=150&fit=crop&crop=center&auto=format" alt="Nail art">
+                                                </div>
+                                                <div class="ai-analysis">
+                                                    <div class="ai-header">
+                                                        <span class="ai-icon">🤖</span>
+                                                        <span class="ai-label">Analiza asistenta:</span>
+                                                    </div>
+                                                    <div class="analysis-points">
+                                                        <p>• <strong>Detektovano:</strong> Uređni gel nokti, duga dužina (L)</p>
+                                                        <p>• <strong>Usluga:</strong> Korekcija noktiju (90 min, 2.200 RSD)</p>
+                                                        <p>• <strong>Beleške:</strong> Popuna izrasta, zadržati L kvadratni oblik; obnova ombre i cirkona po želji.</p>
+                                                    </div>
+                                                </div>
+                                                <p style="margin-top: 10px;">Hvala na poverenju!</p>
+                                                <span class="message-time">10:47</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="suggested-responses">
+                                        <div class="response-button">
+                                            <i class="fas fa-reply"></i>
+                                            <span>Odgovoricu</span>
+                                        </div>
+                                        <div class="response-button">
+                                            <i class="fas fa-robot"></i>
+                                            <span>Nastavi sa AI</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="whatsapp-input">
+                                        <div class="input-container">
+                                            <i class="fas fa-plus"></i>
+                                            <input type="text" placeholder="Type a message" readonly>
+                                            <i class="fas fa-camera"></i>
+                                            <i class="fas fa-microphone"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-labels">
+                    <span class="carousel-label active">Instagram Bot</span>
+                    <span class="carousel-label">Automatsko Zakazivanje</span>
+                    <span class="carousel-label">AI Analiza Fotografija</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Zašto Izabrati Luma</h2>
+                <p>Moćne funkcije automatizacije kreirane posebno za lepotne salone</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>24/7 Trenutni Odgovor</h3>
+                    <p>Nikada ne propustite potencijalnog klijenta. Naša AI odmah odgovara na Instagram poruke, čak i kad ste zauzeti ili zatvoreni.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Automatsko Zakazivanje</h3>
+                    <p>Bezbolno zakazujte termine direktno preko Instagrama. Sinhronizuje se sa vašim kalendarom i automatski upravlja dostupnošću.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Analiza Fotografija</h3>
+                    <p>AI analizira fotografije klijenata da preporuči najbolje usluge i pruži precizne cene.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Pametna Analitika</h3>
+                    <p>Pratite metrike razgovora, stope zakazivanja i zadovoljstvo klijenata da optimizujete uslugu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Upravljanje Klijentima</h3>
+                    <p>Vodite detaljne profile klijenata, preferencije i istoriju zakazivanja za personalizovanu uslugu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Upravljanje Recenzijama</h3>
+                    <p>Automatski kontaktirajte klijente za recenzije i povratne informacije da izgradite online reputaciju.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Izaberite Vaš Plan</h2>
+                <p>Jednostavne, transparentne cene za salone svih veličina</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Početni</h3>
+                        <div class="price">
+                            <span class="currency">RSD</span>
+                            <span class="amount">2999</span>
+                            <span class="period">/mesecno</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Do 100 poruka mesečno</li>
+                        <li><i class="fas fa-check"></i> Osnovno zakazivanje termina</li>
+                        <li><i class="fas fa-check"></i> Instagram integracija</li>
+                        <li><i class="fas fa-check"></i> Email podrška</li>
+                        <li><i class="fas fa-check"></i> Analitički panel</li>
+                    </ul>
+                    <button class="btn-outline">Probajte Besplatno</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Najpopularniji</div>
+                    <div class="pricing-header">
+                        <h3>Profesionalni</h3>
+                        <div class="price">
+                            <span class="currency">RSD</span>
+                            <span class="amount">4999</span>
+                            <span class="period">/mesecno</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Neograničeni razgovori</li>
+                        <li><i class="fas fa-check"></i> Napredni sistem zakazivanja</li>
+                        <li><i class="fas fa-check"></i> AI analiza fotografija</li>
+                        <li><i class="fas fa-check"></i> Sinhronizacija kalendara</li>
+                        <li><i class="fas fa-check"></i> Baza klijenata</li>
+                        <li><i class="fas fa-check"></i> Prioritetna podrška</li>
+                        <li><i class="fas fa-check"></i> Audio podrška</li>
+                    </ul>
+                    <button class="btn-primary">Probajte Besplatno</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Šta Kažu Naši Klijenti</h2>
+                <p>Kojima veruju stotine klijenata</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Luma je transformisala naš biznis! Zakazujemo 3x više termina preko Instagrama i naši klijenti obožavaju trenutne odgovore."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b098?w=60&h=60&fit=crop&crop=face&auto=format" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Marija Jovanović</h4>
+                            <p>Vlasnica, Glamour Studio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"AI je neverovatno pametan - razume naše usluge i može da rešava složene zahteve za zakazivanje. Kao da imamo posvećenu recepciju 24/7."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face&auto=format" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Petar Milić</h4>
+                            <p>Menadžer, Elite Hair Salon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Naš Instagram angažman je eksplodirao otkad koristimo Luma. Klijenti cene brze odgovore i lak proces zakazivanja."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face&auto=format" alt="Emma Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Nikolić</h4>
+                            <p>Osnivač, Bella Beauty Bar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Spremni da Transformišete Vaš Salon?</h2>
+                <p>Pokrenite vaš 14-dnevni besplatni probni period danas. Kreditna kartica nije potrebna.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary large">Probajte Besplatno</button>
+                    <button class="btn-secondary large">Zakažite Demo</button>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
+                        <span>14-dnevni besplatni probni period</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Bez naplate za podešavanje</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Otkažite kada god želite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>Luma</span>
+                    </div>
+                    <p>AI-powered Instagram automatizacija za lepotne salone</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Proizvod</h4>
+                        <ul>
+                            <li><a href="#">Funkcije</a></li>
+                            <li><a href="#">Cene</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Integracije</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Podrška</h4>
+                        <ul>
+                            <li><a href="#">Centar za pomoć</a></li>
+                            <li><a href="#">Kontaktirajte nas</a></li>
+                            <li><a href="#">Status</a></li>
+                            <li><a href="#">Zajednica</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Kompanija</h4>
+                        <ul>
+                            <li><a href="#">O nama</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Karijere</a></li>
+                            <li><a href="#">Privatnost</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Luma. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
