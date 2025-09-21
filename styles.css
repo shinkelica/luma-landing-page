@@ -1872,13 +1872,11 @@ a:focus {
     color: #007bb5;
 }
 
-/* Suggested responses */
-.suggested-responses {
-    padding: 10px 15px;
-    background: #ffffff;
-    border-top: 1px solid #e0e0e0;
+/* Message response buttons */
+.message-response-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    margin-top: 10px;
     flex-wrap: wrap;
 }
 
@@ -1886,14 +1884,14 @@ a:focus {
     background: #ffffff;
     border: 1px solid #007bb5;
     color: #007bb5;
-    padding: 8px 16px;
-    border-radius: 18px;
-    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .response-button:hover {
@@ -1902,6 +1900,6 @@ a:focus {
 }
 
 .response-button i {
-    font-size: 12px;
+    font-size: 10px;
 }
 

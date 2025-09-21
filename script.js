@@ -295,15 +295,7 @@ function initCarousel() {
         switchToPhone(nextId);
     }
     
-    // Add click handlers to phone containers themselves
-    phoneContainers.forEach(container => {
-        container.addEventListener('click', () => {
-            // Always switch to the next card in circular fashion
-            circularSwitch();
-        });
-    });
-    
-    // Add click handlers to labels
+    // Add click handlers to labels only
     carouselLabels.forEach((label, index) => {
         label.addEventListener('click', () => {
             let targetId;
@@ -313,50 +305,6 @@ function initCarousel() {
             switchToPhone(targetId);
         });
     });
-    
-    // Touch/swipe support for mobile
-    let startX = 0;
-    let currentX = 0;
-    let isDragging = false;
-    
-    const carousel = document.querySelector('.phones-carousel');
-    
-    function handleStart(e) {
-        isDragging = true;
-        startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-        carousel.style.cursor = 'grabbing';
-    }
-    
-    function handleMove(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
-    }
-    
-    function handleEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        carousel.style.cursor = 'grab';
-        
-        const diffX = startX - currentX;
-        const activeContainer = document.querySelector('.phone-container.active');
-        
-        if (Math.abs(diffX) > 50) { // Minimum swipe distance
-            // Any swipe triggers circular switch
-            circularSwitch();
-        }
-    }
-    
-    // Mouse events
-    carousel.addEventListener('mousedown', handleStart);
-    carousel.addEventListener('mousemove', handleMove);
-    carousel.addEventListener('mouseup', handleEnd);
-    carousel.addEventListener('mouseleave', handleEnd);
-    
-    // Touch events
-    carousel.addEventListener('touchstart', handleStart, { passive: false });
-    carousel.addEventListener('touchmove', handleMove, { passive: false });
-    carousel.addEventListener('touchend', handleEnd);
     
     // Auto-cycle through phones
     let autoSwitch = true;
@@ -382,22 +330,12 @@ function initCarousel() {
         startAutoSwitch();
     }
     
-    // Pause auto-cycle on user interaction
-    carousel.addEventListener('mouseenter', pauseAutoSwitch);
-    carousel.addEventListener('mouseleave', resumeAutoSwitch);
-    
-    // Reset timer on manual interaction
-    phoneContainers.forEach(container => {
-        container.addEventListener('click', () => {
+    // Reset timer on label click
+    carouselLabels.forEach(label => {
+        label.addEventListener('click', () => {
             pauseAutoSwitch();
             setTimeout(resumeAutoSwitch, 3000); // Resume after 3 seconds of no interaction
         });
-    });
-    
-    // Reset timer on swipe
-    carousel.addEventListener('touchend', () => {
-        pauseAutoSwitch();
-        setTimeout(resumeAutoSwitch, 3000); // Resume after 3 seconds of no interaction
     });
     
     // Start auto-cycle
