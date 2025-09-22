@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luma - Instagram Bot Agent for Beauty Salons</title>
+    <link rel="icon" type="image/png" href="assets/luma.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,8 +13,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-crown"></i>
-                <span>Luma</span>
+                <img src="assets/luma.png" alt="Luma Logo" class="logo-img">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Početna</a></li>
@@ -37,7 +37,6 @@
                 <p>AI-powered Instagram bot koji vodi razgovore sa klijentima, zakazuje termine i razvija vaš biznis 24/7</p>
                 <div class="hero-buttons">
                     <button class="btn-primary">Probajte Besplatno</button>
-                    <button class="btn-secondary">Pogledajte Demo</button>
                 </div>
             </div>
             <div class="hero-image">
@@ -376,7 +375,6 @@
                 <p>Pokrenite vaš 14-dnevni besplatni probni period danas. Kreditna kartica nije potrebna.</p>
                 <div class="cta-buttons">
                     <button class="btn-primary large">Probajte Besplatno</button>
-                    <button class="btn-secondary large">Zakažite Demo</button>
                 </div>
                 <div class="cta-features">
                     <div class="cta-feature">
@@ -448,6 +446,68 @@
         </div>
     </footer>
 
+    <!-- Trial Modal -->
+    <div id="trialModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Probajte Lumu Besplatno</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="trialForm" class="trial-form">
+                <div class="form-group">
+                    <label for="salonName">Naziv salona *</label>
+                    <input type="text" id="salonName" name="salonName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ownerName">Vaše ime i prezime *</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email adresa *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Broj telefona *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instagramHandle">Instagram username (opciono)</label>
+                    <input type="text" id="instagramHandle" name="instagramHandle" placeholder="@vaš_salon">
+                </div>
+                
+                <div class="form-group">
+                    <label for="planSelection">Odaberite plan</label>
+                    <div class="plan-toggle">
+                        <div class="toggle-option" data-plan="starter">
+                            <input type="radio" id="starter" name="plan" value="starter">
+                            <label for="starter">
+                                <span class="plan-name">Početni</span>
+                                <span class="plan-price">2999 RSD/mesečno</span>
+                            </label>
+                        </div>
+                        <div class="toggle-option" data-plan="professional">
+                            <input type="radio" id="professional" name="plan" value="professional" checked>
+                            <label for="professional">
+                                <span class="plan-name">Profesionalni</span>
+                                <span class="plan-price">4999 RSD/mesečno</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Pošaljite Zahtev</button>
+                    <p class="form-note">14-dnevni besplatni probni period • Bez obaveze</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

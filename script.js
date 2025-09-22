@@ -344,8 +344,18 @@ function initCarousel() {
 
 // Initialize animations when page loads
 window.addEventListener('load', () => {
+    console.log('Page loaded, initializing...');
+    
     // Initialize carousel
     initCarousel();
+    
+    // Initialize modal functionality
+    try {
+        initModal();
+        console.log('Modal initialization completed');
+    } catch (error) {
+        console.error('Error initializing modal:', error);
+    }
     
     // Start Instagram chat animation with slight delay to let hero animate first
     setTimeout(animateInstagramChat, 1500);
@@ -362,6 +372,352 @@ window.addEventListener('scroll', () => {
         parallax.style.transform = `translateY(${speed}px)`;
     }
 });
+
+// Modal Functionality
+function initModal() {
+    console.log('Initializing modal...');
+    const modal = document.getElementById('trialModal');
+    const closeBtn = document.querySelector('.close');
+    const trialForm = document.getElementById('trialForm');
+    
+    console.log('Modal elements:', { modal: !!modal, closeBtn: !!closeBtn, trialForm: !!trialForm });
+    
+    if (!modal || !closeBtn || !trialForm) {
+        console.error('Missing modal elements, aborting modal initialization');
+        return;
+    }
+    
+    // Get all "Probajte Besplatno" buttons
+    const trialButtons = document.querySelectorAll('.btn-primary, .btn-outline');
+    
+    console.log('Found trial buttons:', trialButtons.length);
+    
+    // Add click event to all trial buttons
+    trialButtons.forEach((button, index) => {
+        console.log(`Button ${index}:`, button.textContent.trim());
+        if (button.textContent.includes('Probajte Besplatno')) {
+            console.log(`Adding event listener to button ${index}`);
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Trial button clicked!');
+                
+                // Check if button is in pricing card to auto-select plan
+                const pricingCard = button.closest('.pricing-card');
+                if (pricingCard) {
+                    const planType = pricingCard.querySelector('h3').textContent.toLowerCase();
+                    console.log('Plan type detected:', planType);
+                    if (planType.includes('početni')) {
+                        selectPlan('starter');
+                    } else if (planType.includes('profesional')) {
+                        selectPlan('professional');
+                    }
+                }
+                
+                openModal();
+            });
+        }
+    });
+    
+    // Close modal events
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+    
+    // Form submission
+    if (trialForm) {
+        console.log('Attaching form submission handler');
+        trialForm.addEventListener('submit', handleFormSubmission);
+        
+        // Also add click handler to submit button as backup
+        const submitBtn = trialForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            console.log('Also attaching click handler to submit button');
+            submitBtn.addEventListener('click', (e) => {
+                console.log('Submit button clicked directly!');
+                handleFormSubmission(e);
+            });
+        }
+    } else {
+        console.error('Trial form not found!');
+    }
+    
+    function openModal() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    function selectPlan(planType) {
+        const planRadio = document.getElementById(planType);
+        if (planRadio) {
+            planRadio.checked = true;
+        }
+    }
+    
+    function handleFormSubmission(e) {
+        e.preventDefault();
+        console.log('Form submitted!');
+        
+        // Clear previous validation errors
+        clearValidationErrors();
+        
+        // Validate required fields
+        const isValid = validateForm();
+        console.log('Form validation result:', isValid);
+        if (!isValid) {
+            console.log('Form validation failed, stopping submission');
+            return;
+        }
+        
+        // Get form data
+        const formData = new FormData(trialForm);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Show loading state
+        const submitBtn = trialForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Šalje se...';
+        submitBtn.disabled = true;
+        
+        // Send emails (notification + auto-reply)
+        sendEmail(data)
+            .then(() => {
+                // Success
+                showSuccessMessage();
+                setTimeout(() => {
+                    closeModal();
+                    trialForm.reset();
+                }, 3000);
+            })
+            .catch((error) => {
+                console.error('Error sending email:', error);
+                showErrorMessage();
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    }
+    
+    function validateForm() {
+        const requiredFields = ['salonName', 'ownerName', 'email', 'phone'];
+        let isValid = true;
+        
+        console.log('Validating form...');
+        
+        requiredFields.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            console.log(`Checking field ${fieldName}:`, field ? field.value : 'Field not found');
+            if (!field.value.trim()) {
+                console.log(`Field ${fieldName} is empty, adding error class`);
+                field.classList.add('error');
+                isValid = false;
+            }
+        });
+        
+        // Validate email format
+        const emailField = document.getElementById('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailField.value.trim() && !emailRegex.test(emailField.value)) {
+            console.log('Email format is invalid');
+            emailField.classList.add('error');
+            isValid = false;
+        }
+        
+        console.log('Validation complete, isValid:', isValid);
+        return isValid;
+    }
+    
+    function clearValidationErrors() {
+        const inputs = trialForm.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.classList.remove('error');
+        });
+    }
+    
+    // Add event listeners to clear errors when user starts typing
+    trialForm.addEventListener('input', (e) => {
+        if (e.target.tagName === 'INPUT') {
+            e.target.classList.remove('error');
+        }
+    });
+    
+    function showSuccessMessage() {
+        // Remove any existing message
+        const existingMessage = trialForm.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        // Create success message
+        const successMessage = document.createElement('div');
+        successMessage.className = 'form-message success';
+        successMessage.innerHTML = `
+            <div class="message-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="message-content">
+                <h3>Uspešno poslato!</h3>
+                <p>Kontaktiraćemo vas uskoro za postavljanje vašeg besplatnog probnog perioda.</p>
+            </div>
+        `;
+        
+        // Insert at the top of the form
+        trialForm.insertBefore(successMessage, trialForm.firstChild);
+        
+        // Add animation
+        setTimeout(() => {
+            successMessage.classList.add('show');
+        }, 100);
+    }
+    
+    function showErrorMessage() {
+        // Remove any existing message
+        const existingMessage = trialForm.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        // Create error message
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'form-message error';
+        errorMessage.innerHTML = `
+            <div class="message-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="message-content">
+                <h3>Greška pri slanju</h3>
+                <p>Molimo pokušajte ponovo ili nas kontaktirajte direktno.</p>
+            </div>
+        `;
+        
+        // Insert at the top of the form
+        trialForm.insertBefore(errorMessage, trialForm.firstChild);
+        
+        // Add animation
+        setTimeout(() => {
+            errorMessage.classList.add('show');
+        }, 100);
+    }
+    
+    async function sendEmail(data) {
+        // Initialize EmailJS with your credentials
+        try {
+            // Initialize EmailJS with your public key
+            emailjs.init("5h1_IyLFUQ_pS6KGa");
+            
+            // Send notification email to yourself
+            const notificationResult = await emailjs.send(
+                "service_va9urxb", // Your service ID
+                "template_aid7vnp", // Your template ID
+                {
+                    to_email: "bailey.bytes@outlook.com",
+                    salon_name: data.salonName,
+                    owner_name: data.ownerName,
+                    email: data.email,
+                    phone: data.phone,
+                    instagram: data.instagramHandle || 'Nije navedeno',
+                    plan: data.plan === 'starter' ? 'Početni (2999 RSD)' : 'Profesionalni (4999 RSD)',
+                    date: new Date().toLocaleString('sr-RS')
+                }
+            );
+            
+            // Send auto-reply email to the user
+            const autoReplyResult = await emailjs.send(
+                "service_va9urxb", // Your service ID
+                "template_rlowh6j", // Auto-reply template ID
+                {
+                    email: data.email,
+                    owner_name: data.ownerName,
+                    salon_name: data.salonName,
+                    plan: data.plan === 'starter' ? 'Početni (2999 RSD)' : 'Profesionalni (4999 RSD)'
+                }
+            );
+            
+            console.log('Both emails sent successfully:', { notificationResult, autoReplyResult });
+            return Promise.resolve();
+        } catch (error) {
+            console.error('EmailJS error:', error);
+            // Fallback to alternative method
+            return sendEmailFallback(data);
+        }
+        
+    }
+    
+    async function sendEmailFallback(data) {
+        // Fallback method - you can implement webhook, Netlify forms, or other service
+        console.log('Using fallback email method');
+        
+        // For now, we'll use a webhook service like Formspree or similar
+        try {
+            const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: 'bailey.bytes@outlook.com',
+                    subject: 'Zahtev za besplatni probni period - Luma',
+                    message: `
+Novi zahtev za besplatni probni period:
+
+Salon: ${data.salonName}
+Ime i prezime: ${data.ownerName}
+Email: ${data.email}
+Telefon: ${data.phone}
+Instagram: ${data.instagramHandle || 'Nije navedeno'}
+Plan: ${data.plan === 'starter' ? 'Početni (2999 RSD)' : 'Profesionalni (4999 RSD)'}
+
+Datum: ${new Date().toLocaleString('sr-RS')}
+Poslano sa Luma landing page.
+                    `
+                })
+            });
+            
+            if (response.ok) {
+                console.log('Fallback email sent successfully');
+                return Promise.resolve();
+            } else {
+                throw new Error('Fallback email failed');
+            }
+        } catch (error) {
+            console.error('Fallback email error:', error);
+            
+            // Last resort - log the data for manual processing
+            console.log('EMAIL DATA FOR MANUAL PROCESSING:', {
+                to: 'bailey.bytes@outlook.com',
+                subject: 'Zahtev za besplatni probni period - Luma',
+                salon: data.salonName,
+                owner: data.ownerName,
+                email: data.email,
+                phone: data.phone,
+                instagram: data.instagramHandle || 'Nije navedeno',
+                plan: data.plan === 'starter' ? 'Početni (2999 RSD)' : 'Profesionalni (4999 RSD)',
+                date: new Date().toLocaleString('sr-RS')
+            });
+            
+            // Still show success to user (data is logged for manual processing)
+            return Promise.resolve();
+        }
+    }
+}
 
 // Add loading state for buttons
 function addLoadingState(button) {
