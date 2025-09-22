@@ -28,8 +28,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
+// Throttle function for better performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Navbar background on scroll with throttling
+const handleNavbarScroll = throttle(() => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -38,7 +52,9 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = 'none';
     }
-});
+}, 16);
+
+window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -362,16 +378,24 @@ window.addEventListener('load', () => {
 });
 
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
-    const speed = scrolled * 0.5;
-    
-    if (parallax) {
-        parallax.style.transform = `translateY(${speed}px)`;
+// Parallax effect for hero section (disabled on mobile for better performance)
+const handleParallax = throttle(() => {
+    // Only apply parallax on desktop devices
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.hero');
+        const speed = scrolled * 0.3; // Reduced speed for smoother effect
+        
+        if (parallax) {
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
     }
-});
+}, 16);
+
+// Only add parallax on desktop
+if (window.innerWidth > 768) {
+    window.addEventListener('scroll', handleParallax, { passive: true });
+}
 
 // Modal Functionality
 function initModal() {
