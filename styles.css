@@ -265,76 +265,111 @@ body {
     cursor: pointer;
 }
 
-/* Instagram phone (active by default) */
-.phone-container#instagramPhone {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    transform: translateX(0) translateY(0) scale(1);
+/* Desktop: Show all phones stacked */
+@media (min-width: 769px) {
+    /* Instagram phone (active by default) */
+    .phone-container#instagramPhone {
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+
+    /* Calendar phone (behind and offset) */
+    .phone-container#calendarPhone {
+        top: 0;
+        left: 60px;
+        z-index: 1;
+        transform: translateX(0) translateY(0) scale(0.95);
+        opacity: 0.8;
+    }
+
+    .phone-container#whatsappPhone {
+        top: 0;
+        left: 120px;
+        z-index: 0;
+        transform: translateX(0) translateY(0) scale(0.9);
+        opacity: 0.6;
+    }
+
+    /* When calendar is active */
+    .phone-container#calendarPhone.active {
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    /* When Instagram goes to back */
+    .phone-container#instagramPhone:not(.active) {
+        top: 0;
+        left: -60px;
+        z-index: 1;
+        transform: translateX(0) translateY(0) scale(0.95);
+        opacity: 0.8;
+    }
+
+    .phone-container#calendarPhone:not(.active) {
+        top: 0;
+        left: 60px;
+        z-index: 1;
+        transform: translateX(0) translateY(0) scale(0.95);
+        opacity: 0.8;
+    }
+
+    .phone-container#whatsappPhone.active {
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .phone-container#whatsappPhone:not(.active) {
+        top: 0;
+        left: 120px;
+        z-index: 0;
+        transform: translateX(0) translateY(0) scale(0.9);
+        opacity: 0.6;
+    }
+
+    .phone-container:hover:not(.active) {
+        opacity: 0.9;
+        transform: translateX(0) translateY(-5px) scale(0.97);
+    }
 }
 
-/* Calendar phone (behind and offset) */
-.phone-container#calendarPhone {
-    top: 0;
-    left: 60px;
-    z-index: 1;
-    transform: translateX(0) translateY(0) scale(0.95);
-    opacity: 0.8;
-}
+/* Mobile: Show only one phone at a time */
+@media (max-width: 768px) {
+    .phones-carousel {
+        width: 280px;
+        height: 560px;
+    }
 
-.phone-container#whatsappPhone {
-    top: 0;
-    left: 120px;
-    z-index: 0;
-    transform: translateX(0) translateY(0) scale(0.9);
-    opacity: 0.6;
-}
+    .phone-container {
+        width: 260px;
+        height: 520px;
+        top: 0 !important;
+        left: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateX(0) translateY(0) scale(1) !important;
+        z-index: 0 !important;
+    }
 
-/* When calendar is active */
-.phone-container#calendarPhone.active {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    transform: translateX(0) translateY(0) scale(1);
-    opacity: 1;
-}
+    .phone-container.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 2 !important;
+        transform: translateX(0) translateY(0) scale(1) !important;
+    }
 
-/* When Instagram goes to back */
-.phone-container#instagramPhone:not(.active) {
-    top: 0;
-    left: -60px;
-    z-index: 1;
-    transform: translateX(0) translateY(0) scale(0.95);
-    opacity: 0.8;
-}
-
-.phone-container#calendarPhone:not(.active) {
-    top: 0;
-    left: 60px;
-    z-index: 1;
-    transform: translateX(0) translateY(0) scale(0.95);
-    opacity: 0.8;
-}
-
-.phone-container#whatsappPhone.active {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    transform: translateX(0) translateY(0) scale(1);
-    opacity: 1;
-}
-
-.phone-container#whatsappPhone:not(.active) {
-    top: 0;
-    left: 120px;
-    z-index: 0;
-    transform: translateX(0) translateY(0) scale(0.9);
-    opacity: 0.6;
-}
-
-.phone-container:hover:not(.active) {
-    opacity: 0.9;
-    transform: translateX(0) translateY(-5px) scale(0.97);
+    /* Override desktop hover effects on mobile */
+    .phone-container:hover:not(.active) {
+        opacity: 0 !important;
+        transform: translateX(0) translateY(0) scale(1) !important;
+    }
 }
 
 .phone-mockup {
@@ -888,6 +923,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
 }
 
 .author-info h4 {
@@ -1133,40 +1170,6 @@ body {
         transform: none;
     }
     
-    /* Adjust stacked positioning for mobile */
-    .phone-container#calendarPhone {
-        top: 0;
-        left: 40px;
-        transform: translateX(0) translateY(0) scale(0.95);
-    }
-    
-    .phone-container#whatsappPhone {
-        top: 0;
-        left: 80px;
-        transform: translateX(0) translateY(0) scale(0.9);
-    }
-    
-    .phone-container#instagramPhone:not(.active) {
-        top: 0;
-        left: -40px;
-        transform: translateX(0) translateY(0) scale(0.95);
-    }
-    
-    .phone-container#calendarPhone:not(.active) {
-        top: 0;
-        left: 40px;
-        transform: translateX(0) translateY(0) scale(0.95);
-    }
-    
-    .phone-container#whatsappPhone:not(.active) {
-        top: 0;
-        left: 80px;
-        transform: translateX(0) translateY(0) scale(0.9);
-    }
-    
-    .phone-container:hover:not(.active) {
-        transform: translateX(0) translateY(-3px) scale(0.97);
-    }
     
     .carousel-labels {
         gap: 20px;
@@ -1256,25 +1259,23 @@ body {
         height: 450px;
     }
 
-    .phone-container#calendarPhone {
-        left: 30px;
+    /* Mobile: Show only one phone at a time */
+    .phone-container {
+        top: 0 !important;
+        left: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateX(0) translateY(0) scale(1) !important;
+        z-index: 0 !important;
     }
-    
-    .phone-container#whatsappPhone {
-        left: 60px;
+
+    .phone-container.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 2 !important;
+        transform: translateX(0) translateY(0) scale(1) !important;
     }
-    
-    .phone-container#instagramPhone:not(.active) {
-        left: -30px;
-    }
-    
-    .phone-container#calendarPhone:not(.active) {
-        left: 30px;
-    }
-    
-    .phone-container#whatsappPhone:not(.active) {
-        left: 60px;
-    }
+
 
     .carousel-labels {
         gap: 15px;

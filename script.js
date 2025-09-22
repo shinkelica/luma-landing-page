@@ -144,13 +144,13 @@ function animateInstagramChat() {
     if (!chatMessages) return;
     
     const messages = [
-        { type: 'received', text: 'Cao! Ja bih zelela korekciju noktiju, tuđji rad', time: '09:15' },
-        { type: 'sent', text: 'Korekcija – tuđi rad. 🗓️ Trajanje: 1 sat i 30 min. 💰 Ukupna cena: 2.600 RSD.', time: '09:16' },
-        { type: 'sent', text: 'Prvi slobodan termin je utorak, 02.09.2025 u 09:00h. Da li vam to odgovara ili želite da proverim neki kasniji termin? 😊', time: '09:16' },
-        { type: 'received', text: 'Odgovara, hvala', time: '09:17' },
-        { type: 'sent', text: 'Super! 👍 Samo mi recite vaše ime i broj telefona pa da potvrdim rezervaciju 😊', time: '09:17' },
-        { type: 'received', text: 'Marija, 0607270397', time: '09:18' },
-        { type: 'sent', text: 'Odlično! ✅ Termin je rezervisan za utorak, 02.09.2025. u 09:00. Molimo dođite 5 minuta ranije. Vidimo se! 💅', time: '09:18' }
+        { type: 'sent', text: 'Cao! Ja bih zelela korekciju noktiju, tuđji rad', time: '09:15' },
+        { type: 'received', text: 'Korekcija – tuđi rad. 🗓️ Trajanje: 1 sat i 30 min. 💰 Ukupna cena: 2.600 RSD.', time: '09:16' },
+        { type: 'received', text: 'Prvi slobodan termin je utorak, 02.09.2025 u 09:00h. Da li vam to odgovara ili želite da proverim neki kasniji termin? 😊', time: '09:16' },
+        { type: 'sent', text: 'Odgovara, hvala', time: '09:17' },
+        { type: 'received', text: 'Super! 👍 Samo mi recite vaše ime i broj telefona pa da potvrdim rezervaciju 😊', time: '09:17' },
+        { type: 'sent', text: 'Marija, 0607270397', time: '09:18' },
+        { type: 'received', text: 'Odlično! ✅ Termin je rezervisan za utorak, 02.09.2025. u 09:00. Molimo dođite 5 minuta ranije. Vidimo se! 💅', time: '09:18' }
     ];
     
     // Clear existing messages except date separator
@@ -165,7 +165,7 @@ function animateInstagramChat() {
     // Add typing indicator
     function showTypingIndicator() {
         const typingElement = document.createElement('div');
-        typingElement.className = 'message sent typing-indicator';
+        typingElement.className = 'message received typing-indicator';
         typingElement.innerHTML = `
             <div class="message-content">
                 <p class="typing-dots">
@@ -200,9 +200,9 @@ function animateInstagramChat() {
         
         const message = messages[messageIndex];
         
-        // Show typing indicator for sent messages
+        // Show typing indicator for assistant messages (received)
         let typingIndicator = null;
-        if (message.type === 'sent') {
+        if (message.type === 'received') {
             typingIndicator = showTypingIndicator();
             
             // Wait a bit before showing the actual message
@@ -249,8 +249,8 @@ function animateInstagramChat() {
             
             messageIndex++;
             
-            // Add next message after a shorter delay since no typing animation
-            const delay = message.type === 'sent' ? 2000 : 1200;
+            // Add next message after a shorter delay for client messages, longer for assistant
+            const delay = message.type === 'received' ? 2000 : 1200;
             setTimeout(addMessage, delay);
         }
     }
@@ -317,7 +317,7 @@ function initCarousel() {
         autoSwitchTimer = setTimeout(() => {
             circularSwitch();
             startAutoSwitch(); // Restart the timer
-        }, 5000); // Switch every 5 seconds
+        }, 8000); // Switch every 8 seconds
     }
     
     function pauseAutoSwitch() {
@@ -339,7 +339,7 @@ function initCarousel() {
     });
     
     // Start auto-cycle
-    setTimeout(startAutoSwitch, 5000);
+    setTimeout(startAutoSwitch, 8000);
 }
 
 // Initialize animations when page loads
