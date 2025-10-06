@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politika Privatnosti - Privacy Policy | Luma Beauty Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .language-toggle button {
+            padding: 10px 30px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .language-toggle button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .language-section {
+            display: none;
+        }
+
+        .language-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .last-updated {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Politika Privatnosti</h1>
+            <p>Privacy Policy</p>
+        </div>
+
+        <div class="language-toggle">
+            <button onclick="switchLanguage('sr')" class="active" id="btn-sr">🇷🇸 Srpski</button>
+            <button onclick="switchLanguage('en')" id="btn-en">🇬🇧 English</button>
+        </div>
+
+        <div class="content">
+            <!-- Serbian Version -->
+            <div id="lang-sr" class="language-section active">
+                <div class="last-updated">
+                    Poslednje ažurirano: 6. oktobar 2025.
+                </div>
+
+                <h2>1. Uvod</h2>
+                <p>Dobrodošli u Luma Beauty Bot. Ova Politika Privatnosti objašnjava kako prikupljamo, koristimo i štitimo vaše lične podatke kada koristite našu uslugu automatskog zakazivanja termina za salone lepote putem Instagram poruka.</p>
+
+                <h2>2. Podaci koje prikupljamo</h2>
+                <h3>2.1 Informacije sa Instagram naloga</h3>
+                <ul>
+                    <li>Instagram poruke i sadržaj komunikacije</li>
+                    <li>Osnovne informacije o Instagram profilu (korisničko ime, ID naloga)</li>
+                    <li>Instagram Business nalog pristupni tokeni (šifrovano)</li>
+                </ul>
+
+                <h3>2.2 Podaci o zakazivanju</h3>
+                <ul>
+                    <li>Ime i prezime klijenta</li>
+                    <li>Broj telefona</li>
+                    <li>Vrsta usluge</li>
+                    <li>Datum i vreme termina</li>
+                    <li>Dodatne napomene ili zahtevi</li>
+                </ul>
+
+                <h2>3. Kako koristimo vaše podatke</h2>
+                <ul>
+                    <li>Za pružanje automatizovane usluge zakazivanja termina</li>
+                    <li>Za upravljanje terminima i komunikaciju sa klijentima</li>
+                    <li>Za poboljšanje kvaliteta naše usluge</li>
+                    <li>Za slanje potvrda o terminima i podsetnika</li>
+                    <li>Za generisanje analitike i izveštaja za vlasnike salona</li>
+                </ul>
+
+                <h2>4. Bezbednost podataka</h2>
+                <p>Bezbednost vaših podataka je naš prioritet:</p>
+                <ul>
+                    <li>Svi osetljivi podaci su šifrovani koristeći AES-256 enkripciju</li>
+                    <li>Pristupni tokeni se čuvaju šifrovano u sigurnoj bazi podataka</li>
+                    <li>Koristimo AWS infrastrukturu sa naprednim sigurnosnim merama</li>
+                    <li>Pristup podacima je ograničen samo na ovlašćeno osoblje</li>
+                    <li>Redovno vršimo sigurnosne provere i ažuriranja</li>
+                </ul>
+
+                <h2>5. Deljenje podataka</h2>
+                <p>Mi ne prodajemo niti delimo vaše lične podatke sa trećim stranama, osim:</p>
+                <ul>
+                    <li><strong>Meta/Instagram API</strong> - za funkcionalnost slanja poruka</li>
+                    <li><strong>AWS (Amazon Web Services)</strong> - za sigurno čuvanje podataka</li>
+                    <li><strong>OpenAI</strong> - za AI obradu poruka (bez skladištenja ličnih podataka)</li>
+                </ul>
+
+                <h2>6. Čuvanje podataka</h2>
+                <p>Vaše podatke čuvamo dok aktivno koristite našu uslugu. Kada odspojite svoj Instagram nalog:</p>
+                <ul>
+                    <li>Pristupni tokeni se automatski brišu</li>
+                    <li>Istorija termina može biti sačuvana za poslovne potrebe salona</li>
+                    <li>Možete zatražiti potpuno brisanje svih podataka kontaktiranjem podrške</li>
+                </ul>
+
+                <h2>7. Vaša prava</h2>
+                <p>Imate pravo da:</p>
+                <ul>
+                    <li>Pristupite svojim ličnim podacima</li>
+                    <li>Zatražite ispravku netačnih podataka</li>
+                    <li>Zatražite brisanje svojih podataka</li>
+                    <li>Odspojite Instagram nalog u bilo kom trenutku</li>
+                    <li>Primite kopiju svojih podataka</li>
+                    <li>Povučete pristanak za obradu podataka</li>
+                </ul>
+
+                <h2>8. Brisanje podataka</h2>
+                <p>Da biste obrisali svoje podatke:</p>
+                <ul>
+                    <li>Odspojite Instagram nalog kroz podešavanja mobilne aplikacije</li>
+                    <li>Pošaljite email zahtev na: <strong>privacy@flows.social</strong></li>
+                    <li>Zahtevi za brisanje se obrađuju u roku od 30 dana</li>
+                </ul>
+
+                <h2>9. Kolačići (Cookies)</h2>
+                <p>Naša usluga ne koristi kolačiće za praćenje korisnika. Koristimo osnovnu sesijsku autentifikaciju za sigurnost aplikacije.</p>
+
+                <h2>10. Prava dece</h2>
+                <p>Naša usluga je namenjena licima starijim od 18 godina. Svesno ne prikupljamo podatke od dece mlađe od 18 godina.</p>
+
+                <h2>11. Izmene Politike Privatnosti</h2>
+                <p>Zadržavamo pravo da ažuriramo ovu politiku privatnosti. O svim promenama ćemo vas obavestiti:</p>
+                <ul>
+                    <li>Ažuriranjem datuma na vrhu ove stranice</li>
+                    <li>Slanjem obaveštenja kroz aplikaciju</li>
+                    <li>Email obaveštenjem za značajne izmene</li>
+                </ul>
+
+                <h2>12. Usklađenost sa zakonima</h2>
+                <p>Ova politika privatnosti je usklađena sa:</p>
+                <ul>
+                    <li>GDPR (General Data Protection Regulation)</li>
+                    <li>Zakonom o zaštiti podataka o ličnosti Republike Srbije</li>
+                    <li>Meta/Instagram API pravilima</li>
+                </ul>
+
+                <div class="contact-box">
+                    <h3>Kontaktirajte nas</h3>
+                    <p>Za pitanja o politici privatnosti ili zahteve za brisanje podataka:</p>
+                    <p><strong>Email:</strong> bailey.bytes@outlook.com<br>
+                    <strong>Website:</strong> <a href="https://luma.flows.social">https://luma.flows.social</a></p>
+                </div>
+            </div>
+
+            <!-- English Version -->
+            <div id="lang-en" class="language-section">
+                <div class="last-updated">
+                    Last updated: October 6, 2025
+                </div>
+
+                <h2>1. Introduction</h2>
+                <p>Welcome to Luma Beauty Bot. This Privacy Policy explains how we collect, use, and protect your personal data when you use our automated appointment booking service for beauty salons via Instagram messages.</p>
+
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 Instagram Account Information</h3>
+                <ul>
+                    <li>Instagram messages and communication content</li>
+                    <li>Basic Instagram profile information (username, account ID)</li>
+                    <li>Instagram Business account access tokens (encrypted)</li>
+                </ul>
+
+                <h3>2.2 Booking Information</h3>
+                <ul>
+                    <li>Client's first and last name</li>
+                    <li>Phone number</li>
+                    <li>Service type</li>
+                    <li>Appointment date and time</li>
+                    <li>Additional notes or requests</li>
+                </ul>
+
+                <h2>3. How We Use Your Data</h2>
+                <ul>
+                    <li>To provide automated appointment booking services</li>
+                    <li>To manage appointments and client communications</li>
+                    <li>To improve the quality of our service</li>
+                    <li>To send appointment confirmations and reminders</li>
+                    <li>To generate analytics and reports for salon owners</li>
+                </ul>
+
+                <h2>4. Data Security</h2>
+                <p>The security of your data is our priority:</p>
+                <ul>
+                    <li>All sensitive data is encrypted using AES-256 encryption</li>
+                    <li>Access tokens are stored encrypted in a secure database</li>
+                    <li>We use AWS infrastructure with advanced security measures</li>
+                    <li>Data access is restricted to authorized personnel only</li>
+                    <li>We perform regular security audits and updates</li>
+                </ul>
+
+                <h2>5. Data Sharing</h2>
+                <p>We do not sell or share your personal data with third parties, except:</p>
+                <ul>
+                    <li><strong>Meta/Instagram API</strong> - for messaging functionality</li>
+                    <li><strong>AWS (Amazon Web Services)</strong> - for secure data storage</li>
+                    <li><strong>OpenAI</strong> - for AI message processing (no personal data storage)</li>
+                </ul>
+
+                <h2>6. Data Retention</h2>
+                <p>We retain your data while you actively use our service. When you disconnect your Instagram account:</p>
+                <ul>
+                    <li>Access tokens are automatically deleted</li>
+                    <li>Appointment history may be retained for salon business purposes</li>
+                    <li>You can request complete data deletion by contacting support</li>
+                </ul>
+
+                <h2>7. Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access your personal data</li>
+                    <li>Request correction of inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Disconnect your Instagram account at any time</li>
+                    <li>Receive a copy of your data</li>
+                    <li>Withdraw consent for data processing</li>
+                </ul>
+
+                <h2>8. Data Deletion</h2>
+                <p>To delete your data:</p>
+                <ul>
+                    <li>Disconnect your Instagram account through mobile app settings</li>
+                    <li>Send an email request to: <strong>privacy@flows.social</strong></li>
+                    <li>Deletion requests are processed within 30 days</li>
+                </ul>
+
+                <h2>9. Cookies</h2>
+                <p>Our service does not use cookies for user tracking. We use basic session authentication for application security.</p>
+
+                <h2>10. Children's Privacy</h2>
+                <p>Our service is intended for individuals aged 18 and above. We do not knowingly collect data from children under 18 years old.</p>
+
+                <h2>11. Changes to Privacy Policy</h2>
+                <p>We reserve the right to update this privacy policy. We will notify you of any changes by:</p>
+                <ul>
+                    <li>Updating the date at the top of this page</li>
+                    <li>Sending notifications through the application</li>
+                    <li>Email notification for significant changes</li>
+                </ul>
+
+                <h2>12. Legal Compliance</h2>
+                <p>This privacy policy complies with:</p>
+                <ul>
+                    <li>GDPR (General Data Protection Regulation)</li>
+                    <li>Personal Data Protection Law of the Republic of Serbia</li>
+                    <li>Meta/Instagram API policies</li>
+                </ul>
+
+                <div class="contact-box">
+                    <h3>Contact Us</h3>
+                    <p>For privacy policy questions or data deletion requests:</p>
+                    <p><strong>Email:</strong> bailey.bytes@outlook.com<br>
+                    <strong>Website:</strong> <a href="https://luma.flows.social">https://luma.flows.social</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Luma Beauty Bot. All rights reserved.</p>
+            <p><a href="https://luma.flows.social">Back to Homepage</a></p>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all sections
+            document.querySelectorAll('.language-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.language-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // Update page language attribute
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
