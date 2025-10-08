@@ -930,4 +930,72 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSection.setAttribute('id', 'main');
         heroSection.setAttribute('role', 'main');
     }
+
+    // Pricing billing toggle functionality
+    initPricingToggle();
 });
+
+// Pricing Toggle - Monthly vs Yearly
+function initPricingToggle() {
+    const billingToggle = document.getElementById('billing-toggle');
+    const monthlyLabel = document.getElementById('monthly-label');
+    const yearlyLabel = document.getElementById('yearly-label');
+    const priceElements = document.querySelectorAll('.pricing-card .amount');
+
+    if (!billingToggle) return;
+
+    // Set initial state
+    updateLabels(false);
+
+    billingToggle.addEventListener('change', function() {
+        const isYearly = this.checked;
+        updateLabels(isYearly);
+        updatePrices(isYearly);
+    });
+
+    function updateLabels(isYearly) {
+        if (isYearly) {
+            monthlyLabel.classList.remove('active');
+            yearlyLabel.classList.add('active');
+        } else {
+            monthlyLabel.classList.add('active');
+            yearlyLabel.classList.remove('active');
+        }
+    }
+
+    function updatePrices(isYearly) {
+        priceElements.forEach(priceElement => {
+            const monthlyPrice = parseInt(priceElement.getAttribute('data-monthly'));
+            const yearlyPrice = parseInt(priceElement.getAttribute('data-yearly'));
+
+            const targetPrice = isYearly ? yearlyPrice : monthlyPrice;
+            const currentPrice = parseInt(priceElement.textContent);
+
+            // Animate the price change
+            animatePrice(priceElement, currentPrice, targetPrice);
+        });
+    }
+
+    function animatePrice(element, start, end) {
+        const duration = 500; // milliseconds
+        const startTime = performance.now();
+        const difference = end - start;
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function (easeOutCubic)
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+            const currentValue = Math.round(start + (difference * easeProgress));
+            element.textContent = currentValue;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+}

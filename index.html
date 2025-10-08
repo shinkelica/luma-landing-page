@@ -574,45 +574,89 @@
                 <h2>Izaberite Vaš Plan</h2>
                 <p>Jednostavne, transparentne cene za salone svih veličina</p>
             </div>
+
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span class="billing-option" id="monthly-label">Mesečno</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="billing-option" id="yearly-label">
+                    Godišnje
+                    <span class="discount-badge">Uštedite 500 RSD</span>
+                </span>
+            </div>
+
             <div class="pricing-grid">
+                <!-- Starter Plan -->
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Početni</h3>
                         <div class="price">
                             <span class="currency">RSD</span>
-                            <span class="amount">2999</span>
-                            <span class="period">/mesecno</span>
+                            <span class="amount" data-monthly="2999" data-yearly="2499">2999</span>
+                            <span class="period">/mesečno</span>
                         </div>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Do 100 poruka mesečno</li>
-                        <li><i class="fas fa-check"></i> Osnovno zakazivanje termina</li>
-                        <li><i class="fas fa-check"></i> Instagram integracija</li>
-                        <li><i class="fas fa-check"></i> Email podrška</li>
-                        <li><i class="fas fa-check"></i> Analitički panel</li>
+                        <li><i class="fas fa-robot"></i> AI rezervacije preko DM</li>
+                        <li><i class="fas fa-mobile-alt"></i> Mobilna aplikacija</li>
+                        <li><i class="fas fa-store"></i> 1 salon lokacija</li>
+                        <li><i class="fas fa-list"></i> Do 10 usluga</li>
+                        <li><i class="fas fa-user"></i> 1 radnik</li>
+                        <li><i class="fas fa-calendar"></i> Kalendar termina</li>
+                        <li><i class="fas fa-chart-line"></i> Analitika (7 dana)</li>
+                        <li><i class="fas fa-envelope"></i> Email podrška</li>
                     </ul>
                     <button class="btn-outline">Probajte Besplatno</button>
                 </div>
+
+                <!-- Professional Plan (Featured) -->
                 <div class="pricing-card featured">
                     <div class="pricing-badge">Najpopularniji</div>
                     <div class="pricing-header">
                         <h3>Profesionalni</h3>
                         <div class="price">
                             <span class="currency">RSD</span>
-                            <span class="amount">4999</span>
-                            <span class="period">/mesecno</span>
+                            <span class="amount" data-monthly="4999" data-yearly="4499">4999</span>
+                            <span class="period">/mesečno</span>
                         </div>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Neograničeni razgovori</li>
-                        <li><i class="fas fa-check"></i> Napredni sistem zakazivanja</li>
-                        <li><i class="fas fa-check"></i> AI analiza fotografija</li>
-                        <li><i class="fas fa-check"></i> Mobilna aplikacija</li>
-                        <li><i class="fas fa-check"></i> Baza klijenata</li>
-                        <li><i class="fas fa-check"></i> Prioritetna podrška</li>
-                        <li><i class="fas fa-check"></i> Audio podrška</li>
+                        <li><i class="fas fa-check"></i> <strong>Sve iz Početnog, plus:</strong></li>
+                        <li><i class="fas fa-image"></i> AI analiza slika noktiju</li>
+                        <li><i class="fas fa-microphone"></i> Glasovne poruke - transkript</li>
+                        <li><i class="fas fa-bell"></i> Push notifikacije</li>
+                        <li><i class="fas fa-store"></i> Do 3 salon lokacije</li>
+                        <li><i class="fas fa-infinity"></i> Neograničene usluge</li>
+                        <li><i class="fas fa-users"></i> Do 5 radnika</li>
+                        <li><i class="fas fa-chart-line"></i> Analitika (30 dana)</li>
+                        <li><i class="fas fa-headset"></i> Prioritetna podrška</li>
                     </ul>
                     <button class="btn-primary">Probajte Besplatno</button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="currency">RSD</span>
+                            <span class="amount" data-monthly="6999" data-yearly="6499">6999</span>
+                            <span class="period">/mesečno</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <strong>Sve iz Profesionalnog, plus:</strong></li>
+                        <li><i class="fas fa-building"></i> Neograničene lokacije</li>
+                        <li><i class="fas fa-user-friends"></i> Neograničeni radnici</li>
+                        <li><i class="fas fa-chart-bar"></i> Neograničena analitika i izveštaji</li>
+                        <li><i class="fas fa-shield-alt"></i> Detekcija odlaganja plaćanja</li>
+                        <li><i class="fas fa-bullhorn"></i> Upravljanje Instagram/Facebook reklamama</li>
+                        <li><i class="fas fa-phone-alt"></i> 24/7 prioritetna podrška</li>
+                    </ul>
+                    <button class="btn-outline">Kontaktirajte nas</button>
                 </div>
             </div>
         </div>
