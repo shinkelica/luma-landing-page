@@ -279,81 +279,56 @@ function animateInstagramChat() {
 function initCarousel() {
     const carouselLabels = document.querySelectorAll('.carousel-label');
     const phoneContainers = document.querySelectorAll('.phone-container');
-    
-    function switchToPhone(targetId) {
+
+    function switchToPhone(targetIndex) {
         // Remove active class from all elements
         phoneContainers.forEach(container => container.classList.remove('active'));
         carouselLabels.forEach(label => label.classList.remove('active'));
-        
+
         // Add active class to target elements
-        const targetContainer = document.getElementById(targetId);
-        let targetLabelIndex;
-        if (targetId === 'instagramPhone') targetLabelIndex = 0;
-        else if (targetId === 'calendarPhone') targetLabelIndex = 1;
-        else if (targetId === 'whatsappPhone') targetLabelIndex = 2;
-        
-        if (targetContainer) targetContainer.classList.add('active');
-        if (carouselLabels[targetLabelIndex]) carouselLabels[targetLabelIndex].classList.add('active');
+        if (phoneContainers[targetIndex]) phoneContainers[targetIndex].classList.add('active');
+        if (carouselLabels[targetIndex]) carouselLabels[targetIndex].classList.add('active');
     }
-    
+
     function circularSwitch() {
-        const activeContainer = document.querySelector('.phone-container.active');
-        let nextId;
-        
-        if (activeContainer.id === 'instagramPhone') {
-            nextId = 'calendarPhone';
-        } else if (activeContainer.id === 'calendarPhone') {
-            nextId = 'whatsappPhone';
-        } else if (activeContainer.id === 'whatsappPhone') {
-            nextId = 'instagramPhone';
-        }
-        
-        switchToPhone(nextId);
+        const activeIndex = Array.from(phoneContainers).findIndex(container => container.classList.contains('active'));
+        const nextIndex = (activeIndex + 1) % phoneContainers.length;
+        switchToPhone(nextIndex);
     }
-    
-    // Add click handlers to labels only
+
+    // Add click handlers to labels
     carouselLabels.forEach((label, index) => {
         label.addEventListener('click', () => {
-            let targetId;
-            if (index === 0) targetId = 'instagramPhone';
-            else if (index === 1) targetId = 'calendarPhone';
-            else if (index === 2) targetId = 'whatsappPhone';
-            switchToPhone(targetId);
+            switchToPhone(index);
+            pauseAutoSwitch();
+            setTimeout(resumeAutoSwitch, 3000);
         });
     });
-    
+
     // Auto-cycle through phones
     let autoSwitch = true;
     let autoSwitchTimer;
-    
+
     function startAutoSwitch() {
         clearTimeout(autoSwitchTimer);
         if (!autoSwitch) return;
-        
+
         autoSwitchTimer = setTimeout(() => {
             circularSwitch();
-            startAutoSwitch(); // Restart the timer
+            startAutoSwitch();
         }, 8000); // Switch every 8 seconds
     }
-    
+
     function pauseAutoSwitch() {
         autoSwitch = false;
         clearTimeout(autoSwitchTimer);
     }
-    
+
     function resumeAutoSwitch() {
         autoSwitch = true;
         startAutoSwitch();
     }
-    
-    // Reset timer on label click
-    carouselLabels.forEach(label => {
-        label.addEventListener('click', () => {
-            pauseAutoSwitch();
-            setTimeout(resumeAutoSwitch, 3000); // Resume after 3 seconds of no interaction
-        });
-    });
-    
+
     // Start auto-cycle
     setTimeout(startAutoSwitch, 8000);
 }
