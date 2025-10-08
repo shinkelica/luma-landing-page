@@ -359,9 +359,16 @@ window.addEventListener('load', () => {
 // Mobile App Animations - Initialize on visibility
 function initMobileAppAnimations() {
     const mobileAppSection = document.getElementById('mobile-app');
-    if (!mobileAppSection) return;
+    if (!mobileAppSection) {
+        console.log('Mobile app section not found!');
+        return;
+    }
 
     let hasAnimated = false;
+
+    // Use lower threshold for mobile screens
+    const isMobile = window.innerWidth <= 768;
+    const threshold = isMobile ? 0.05 : 0.15; // 5% on mobile, 15% on desktop
 
     const mobileAppObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -376,16 +383,33 @@ function initMobileAppAnimations() {
             }
         });
     }, {
-        threshold: 0.2, // Trigger when 20% of the section is visible
-        rootMargin: '0px'
+        threshold: threshold,
+        rootMargin: '50px' // Start observing 50px before the section enters viewport
     });
 
     mobileAppObserver.observe(mobileAppSection);
+    console.log(`Mobile app animations initialized (threshold: ${threshold})`);
+
+    // Fallback: Check if section is already visible (can happen on direct navigation or page refresh)
+    setTimeout(() => {
+        if (!hasAnimated) {
+            const rect = mobileAppSection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                console.log('Section already visible on load, triggering animations immediately');
+                hasAnimated = true;
+                animateMobileMockups();
+            }
+        }
+    }, 500);
 }
 
 function animateMobileMockups() {
+    console.log('animateMobileMockups called');
+
     // Animate booking items
     const bookingItems = document.querySelectorAll('.booking-item');
+    console.log(`Found ${bookingItems.length} booking items`);
     bookingItems.forEach((item, index) => {
         setTimeout(() => {
             item.classList.add('visible');
@@ -394,6 +418,7 @@ function animateMobileMockups() {
 
     // Animate notification items
     const notificationItems = document.querySelectorAll('.notification-item');
+    console.log(`Found ${notificationItems.length} notification items`);
     notificationItems.forEach((item, index) => {
         setTimeout(() => {
             item.classList.add('visible');
@@ -402,6 +427,7 @@ function animateMobileMockups() {
 
     // Animate analytics metrics
     const analyticsMetrics = document.querySelectorAll('.analytics-cards-row, .analytics-section');
+    console.log(`Found ${analyticsMetrics.length} analytics items`);
     analyticsMetrics.forEach((item, index) => {
         setTimeout(() => {
             item.classList.add('visible');
@@ -411,6 +437,7 @@ function animateMobileMockups() {
     // Animate Instagram connect card
     const connectCard = document.querySelector('.instagram-connect-card');
     const connectButton = document.querySelector('.connect-button-wrapper');
+    console.log(`Found connect card: ${!!connectCard}, button: ${!!connectButton}`);
     if (connectCard) {
         setTimeout(() => {
             connectCard.classList.add('visible');
