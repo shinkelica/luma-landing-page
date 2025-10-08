@@ -69,7 +69,7 @@ body {
 }
 
 .nav-logo .logo-img {
-    height: 40px;
+    height: 70px;
     width: auto;
 }
 
@@ -1042,15 +1042,12 @@ body {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-light);
     margin-bottom: 20px;
 }
 
-.footer-logo i {
-    font-size: 28px;
+.footer-logo-img {
+    height: 60px;
+    width: auto;
 }
 
 .footer-brand p {
@@ -2912,6 +2909,124 @@ a:focus {
     font-size: 20px;
 }
 
+/* Salon Management Card Styles */
+.salon-management-card {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.management-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.management-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.management-icon-wrapper i {
+    font-size: 32px;
+    color: #7c3aed;
+}
+
+.management-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.management-header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.management-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.management-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.management-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+}
+
+.management-item-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.management-item-icon i {
+    font-size: 20px;
+}
+
+.management-item-content {
+    flex: 1;
+}
+
+.management-item-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.management-item-content p {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.management-footer {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.management-footer i {
+    font-size: 24px;
+    color: #7c3aed;
+    flex-shrink: 0;
+}
+
+.management-footer p {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+    margin: 0;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .analytics-summary {
@@ -2921,5 +3036,26 @@ a:focus {
     .service-name {
         min-width: 100px;
         font-size: 12px;
+    }
+
+    .salon-management-card {
+        padding: 24px;
+    }
+
+    .management-header h3 {
+        font-size: 20px;
+    }
+
+    .management-item {
+        padding: 12px;
+    }
+
+    .management-item-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .management-item-icon i {
+        font-size: 18px;
     }
 }
