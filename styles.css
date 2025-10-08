@@ -2751,6 +2751,36 @@ a:focus {
     }
 }
 
+/* Initial hidden state for mobile app mockups */
+.booking-item:not(.visible),
+.notification-item:not(.visible),
+.analytics-cards-row:not(.visible),
+.analytics-section:not(.visible),
+.instagram-connect-card:not(.visible),
+.connect-button-wrapper:not(.visible) {
+    opacity: 0;
+}
+
+/* Visible state with animations */
+.booking-item.visible {
+    animation: slideInBooking 0.5s ease forwards;
+}
+
+.notification-item.visible {
+    animation: slideInNotification 0.5s ease forwards;
+}
+
+.analytics-cards-row.visible,
+.analytics-section.visible {
+    animation: fadeInMetric 0.6s ease forwards;
+}
+
+.instagram-connect-card.visible,
+.connect-button-wrapper.visible {
+    animation: fadeInMetric 0.6s ease forwards;
+}
+
+/* Legacy classes for backward compatibility */
 .animate-booking {
     animation: slideInBooking 0.5s ease forwards;
 }
@@ -2915,7 +2945,7 @@ a:focus {
     border-radius: 24px;
     padding: 32px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    max-width: 600px;
+    max-width: 420px;
     margin: 0 auto;
 }
 

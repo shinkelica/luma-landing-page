@@ -336,10 +336,10 @@ function initCarousel() {
 // Initialize animations when page loads
 window.addEventListener('load', () => {
     console.log('Page loaded, initializing...');
-    
+
     // Initialize carousel
     initCarousel();
-    
+
     // Initialize modal functionality
     try {
         initModal();
@@ -347,11 +347,81 @@ window.addEventListener('load', () => {
     } catch (error) {
         console.error('Error initializing modal:', error);
     }
-    
+
     // Start Instagram chat animation with slight delay to let hero animate first
     setTimeout(animateInstagramChat, 1500);
+
+    // Initialize mobile app animations on visibility
+    initMobileAppAnimations();
 });
 
+
+// Mobile App Animations - Initialize on visibility
+function initMobileAppAnimations() {
+    const mobileAppSection = document.getElementById('mobile-app');
+    if (!mobileAppSection) return;
+
+    let hasAnimated = false;
+
+    const mobileAppObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                console.log('Mobile app section is visible, triggering animations...');
+
+                // Trigger animations with slight delays for each mockup
+                setTimeout(() => {
+                    animateMobileMockups();
+                }, 300);
+            }
+        });
+    }, {
+        threshold: 0.2, // Trigger when 20% of the section is visible
+        rootMargin: '0px'
+    });
+
+    mobileAppObserver.observe(mobileAppSection);
+}
+
+function animateMobileMockups() {
+    // Animate booking items
+    const bookingItems = document.querySelectorAll('.booking-item');
+    bookingItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 300);
+    });
+
+    // Animate notification items
+    const notificationItems = document.querySelectorAll('.notification-item');
+    notificationItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 300);
+    });
+
+    // Animate analytics metrics
+    const analyticsMetrics = document.querySelectorAll('.analytics-cards-row, .analytics-section');
+    analyticsMetrics.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 200);
+    });
+
+    // Animate Instagram connect card
+    const connectCard = document.querySelector('.instagram-connect-card');
+    const connectButton = document.querySelector('.connect-button-wrapper');
+    if (connectCard) {
+        setTimeout(() => {
+            connectCard.classList.add('visible');
+        }, 300);
+    }
+    if (connectButton) {
+        setTimeout(() => {
+            connectButton.classList.add('visible');
+        }, 600);
+    }
+}
 
 // Parallax effect for hero section (disabled on mobile for better performance)
 const handleParallax = throttle(() => {
@@ -360,7 +430,7 @@ const handleParallax = throttle(() => {
         const scrolled = window.pageYOffset;
         const parallax = document.querySelector('.hero');
         const speed = scrolled * 0.3; // Reduced speed for smoother effect
-        
+
         if (parallax) {
             parallax.style.transform = `translateY(${speed}px)`;
         }
