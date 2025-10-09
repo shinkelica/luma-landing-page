@@ -364,44 +364,37 @@ function initMobileAppAnimations() {
         return;
     }
 
-    let hasAnimated = false;
-
-    // Use lower threshold for mobile screens
     const isMobile = window.innerWidth <= 768;
-    const threshold = isMobile ? 0.05 : 0.15; // 5% on mobile, 15% on desktop
+
+    // On mobile: Skip Intersection Observer entirely, use simple timeout
+    if (isMobile) {
+        console.log('Mobile detected: Using simple timeout trigger (no Intersection Observer)');
+        setTimeout(() => {
+            console.log('Mobile: Triggering animations after 1 second delay');
+            animateMobileMockups();
+        }, 1000);
+        return;
+    }
+
+    // Desktop: Use Intersection Observer
+    console.log('Desktop detected: Using Intersection Observer');
+    let hasAnimated = false;
 
     const mobileAppObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            console.log('Intersection entry:', entry.isIntersecting, 'ratio:', entry.intersectionRatio);
             if (entry.isIntersecting && !hasAnimated) {
                 hasAnimated = true;
                 console.log('Mobile app section is visible, triggering animations...');
-
-                // Trigger animations with slight delays for each mockup
-                setTimeout(() => {
-                    animateMobileMockups();
-                }, 300);
+                animateMobileMockups();
             }
         });
     }, {
-        threshold: threshold,
-        rootMargin: '50px' // Start observing 50px before the section enters viewport
+        threshold: 0.15,
+        rootMargin: '50px'
     });
 
     mobileAppObserver.observe(mobileAppSection);
-    console.log(`Mobile app animations initialized (threshold: ${threshold})`);
-
-    // Fallback: Check if section is already visible (can happen on direct navigation or page refresh)
-    setTimeout(() => {
-        if (!hasAnimated) {
-            const rect = mobileAppSection.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            if (isVisible) {
-                console.log('Section already visible on load, triggering animations immediately');
-                hasAnimated = true;
-                animateMobileMockups();
-            }
-        }
-    }, 500);
 }
 
 function animateMobileMockups() {
