@@ -237,6 +237,52 @@ body {
     animation: smoothTextAppear 1s ease-out 1.2s forwards;
 }
 
+.app-store-coming-soon {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: smoothTextAppear 1s ease-out 1.4s forwards;
+}
+
+.coming-soon-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.store-badges {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.store-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.store-badge:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.store-badge i {
+    font-size: 20px;
+}
+
 .btn-primary, .btn-secondary, .btn-outline {
     padding: 16px 32px;
     border-radius: 50px;
@@ -1308,6 +1354,18 @@ body {
         margin-bottom: 40px;
     }
 
+    .app-store-coming-soon {
+        text-align: center;
+    }
+
+    .coming-soon-text {
+        text-align: center;
+    }
+
+    .store-badges {
+        justify-content: center;
+    }
+
     .hero-image {
         margin-bottom: 0px;
     }
@@ -2129,6 +2187,28 @@ a:focus {
     color: var(--text-primary);
 }
 
+.early-bird-banner {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.early-bird-banner i {
+    color: white;
+    font-size: 24px;
+}
+
+.early-bird-banner p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
 .close {
     color: #999;
     font-size: 28px;
@@ -2327,9 +2407,20 @@ a:focus {
     .modal-header {
         padding: 20px 20px 12px;
     }
-    
+
     .modal-header h2 {
         font-size: 20px;
+    }
+
+    .early-bird-banner {
+        padding: 12px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .early-bird-banner p {
+        font-size: 13px;
     }
     
     .trial-form {

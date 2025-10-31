@@ -658,6 +658,17 @@ function updateTranslations(lang) {
             element.textContent = srText;
         }
     });
+
+    // Update placeholders with data-placeholder-sr and data-placeholder-en attributes
+    document.querySelectorAll('[data-placeholder-sr][data-placeholder-en]').forEach(element => {
+        const srPlaceholder = element.getAttribute('data-placeholder-sr');
+        const enPlaceholder = element.getAttribute('data-placeholder-en');
+        if (lang === 'en' && enPlaceholder) {
+            element.placeholder = enPlaceholder;
+        } else if (lang === 'sr' && srPlaceholder) {
+            element.placeholder = srPlaceholder;
+        }
+    });
 }
 
 function updateMockupData(t) {
@@ -1341,35 +1352,40 @@ function initModal() {
         return;
     }
     
-    // Get all "Probajte Besplatno" buttons
+    // Get all waitlist buttons (formerly "Probajte Besplatno")
     const trialButtons = document.querySelectorAll('.btn-primary, .btn-outline');
-    
+
     console.log('Found trial buttons:', trialButtons.length);
-    
-    // Add click event to all trial buttons
+
+    // Add click event to all trial buttons (except "Contact us" button)
     trialButtons.forEach((button, index) => {
         console.log(`Button ${index}:`, button.textContent.trim());
-        if (button.textContent.includes('Probajte Besplatno')) {
-            console.log(`Adding event listener to button ${index}`);
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('Trial button clicked!');
-                
-                // Check if button is in pricing card to auto-select plan
-                const pricingCard = button.closest('.pricing-card');
-                if (pricingCard) {
-                    const planType = pricingCard.querySelector('h3').textContent.toLowerCase();
-                    console.log('Plan type detected:', planType);
-                    if (planType.includes('početni')) {
-                        selectPlan('starter');
-                    } else if (planType.includes('profesional')) {
-                        selectPlan('professional');
-                    }
-                }
-                
-                openModal();
-            });
+        // Skip the "Kontaktirajte nas" / "Contact us" button
+        const buttonText = button.textContent.trim().toLowerCase();
+        if (buttonText.includes('kontaktirajte') || buttonText.includes('contact')) {
+            console.log(`Skipping contact button ${index}`);
+            return;
         }
+
+        console.log(`Adding event listener to button ${index}`);
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Trial button clicked!');
+
+            // Check if button is in pricing card to auto-select plan
+            const pricingCard = button.closest('.pricing-card');
+            if (pricingCard) {
+                const planType = pricingCard.querySelector('h3').textContent.toLowerCase();
+                console.log('Plan type detected:', planType);
+                if (planType.includes('početni')) {
+                    selectPlan('starter');
+                } else if (planType.includes('profesional')) {
+                    selectPlan('professional');
+                }
+            }
+
+            openModal();
+        });
     });
     
     // Close modal events
