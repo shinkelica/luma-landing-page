@@ -425,7 +425,7 @@ const translations = {
 };
 
 // Initialize language
-let currentLang = localStorage.getItem('language') || 'sr';
+let currentLang = localStorage.getItem('language') || 'en';
 
 // Language Toggle Functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -647,6 +647,17 @@ function updateTranslations(lang) {
 
     const footerCopyright = document.querySelector('.footer-bottom p');
     if (footerCopyright) footerCopyright.textContent = t['footer-copyright'];
+
+    // Update all elements with data-sr and data-en attributes (footer links, etc.)
+    document.querySelectorAll('[data-sr][data-en]').forEach(element => {
+        const srText = element.getAttribute('data-sr');
+        const enText = element.getAttribute('data-en');
+        if (lang === 'en' && enText) {
+            element.textContent = enText;
+        } else if (lang === 'sr' && srText) {
+            element.textContent = srText;
+        }
+    });
 }
 
 function updateMockupData(t) {

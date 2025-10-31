@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Luma</title>
+    <link rel="icon" type="image/png" href="assets/luma-purple.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .terms-page {
+            padding-top: 70px;
+            min-height: 100vh;
+            background: var(--background-light);
+        }
+
+        .terms-header {
+            background: var(--gradient-luxury);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0 40px;
+        }
+
+        .terms-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.95) 0%, rgba(236, 72, 153, 0.9) 50%, rgba(245, 158, 11, 0.95) 100%);
+        }
+
+        .terms-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .terms-header h1 {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .terms-header p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .terms-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .terms-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .terms-section h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--background-light);
+        }
+
+        .terms-section h3 {
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .terms-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .terms-section ul, .terms-section ol {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .terms-section ul li, .terms-section ol li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .terms-section ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 24px;
+            position: absolute;
+            left: 10px;
+            top: -2px;
+        }
+
+        .terms-section ol {
+            counter-reset: item;
+        }
+
+        .terms-section ol li {
+            counter-increment: item;
+        }
+
+        .terms-section ol li::before {
+            content: counter(item) ".";
+            color: var(--primary-color);
+            font-weight: 600;
+            position: absolute;
+            left: 10px;
+            top: 0;
+        }
+
+        .terms-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .terms-section a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .terms-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-box {
+            background: var(--background-light);
+            border-left: 4px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+        }
+
+        .important-notice {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .important-notice p {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0.95;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .terms-header h1 {
+                font-size: 32px;
+            }
+
+            .terms-header p {
+                font-size: 16px;
+            }
+
+            .terms-section {
+                padding: 25px;
+            }
+
+            .terms-section h2 {
+                font-size: 24px;
+            }
+
+            .terms-section h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/luma-purple.png" alt="Luma Logo" class="logo-img">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-sr="Početna" data-en="Home">Početna</a></li>
+                <li><a href="index.html#features" data-sr="Funkcije" data-en="Features">Funkcije</a></li>
+                <li><a href="index.html#pricing" data-sr="Cene" data-en="Pricing">Cene</a></li>
+                <li><a href="index.html#contact" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-option" data-lang="sr">SR</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option active" data-lang="en">EN</span>
+                </button>
+                <button class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="terms-page">
+        <div class="terms-header">
+            <div class="terms-header-content">
+                <h1 data-sr="Uslovi Korišćenja" data-en="Terms of Service">Uslovi Korišćenja</h1>
+                <p data-sr="Molimo pročitajte pažljivo pre korišćenja naših usluga" data-en="Please read carefully before using our services">Molimo pročitajte pažljivo pre korišćenja naših usluga</p>
+                <div class="last-updated" data-sr="Poslednje ažuriranje: 31. oktobar 2025." data-en="Last updated: October 31, 2025">Poslednje ažuriranje: 31. oktobar 2025.</div>
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-sr="Nazad na početnu" data-en="Back to home">Nazad na početnu</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="terms-content">
+            <!-- Serbian Content -->
+            <div class="terms-section lang-sr">
+                <h2>1. Prihvatanje Uslova</h2>
+                <p>
+                    Dobrodošli u Luma! Ovi Uslovi korišćenja ("Uslovi") predstavljaju pravno obavezujući ugovor između vas ("Korisnik", "vi", "vaš") i Bailey Bytes ("Kompanija", "mi", "naš"), registrovane kompanije u Srbiji sa sedištem u Novom Sadu.
+                </p>
+                <p>
+                    Pristupanjem, registracijom ili korišćenjem Luma mobilne aplikacije, Instagram Beauty Bot backend-a, ili bilo kog povezanog servisa (zajedno, "Usluga" ili "Platforma"), potvrđujete da:
+                </p>
+                <ul>
+                    <li>Imate najmanje 18 godina starosti ili ste punoletan po zakonima vaše jurisdikcije</li>
+                    <li>Imate pravno ovlašćenje da prihvatite ove Uslove u ime vaše organizacije (ako se registrujete u ime salona ili biznisa)</li>
+                    <li>Pročitali ste, razumeli i prihvatate da budete vezani ovim Uslovima i našom <a href="privacy-policy.html">Politikom Privatnosti</a></li>
+                    <li>Vaše korišćenje Usluge je u skladu sa svim primenljivim lokalnim, državnim, nacionalnim i međunarodnim zakonima i propisima</li>
+                </ul>
+                <div class="important-notice">
+                    <p><strong>VAŽNO:</strong> Ako ne prihvatate ove Uslove u celosti, ne smete pristupiti ili koristiti Uslugu.</p>
+                </div>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>2. Opis Usluge</h2>
+                <p>
+                    Luma je AI-pokretana softverska platforma kao usluga (SaaS) dizajnirana za vlasnike i zaposlene u salonima lepote. Platforma omogućava:
+                </p>
+                <ul>
+                    <li><strong>Instagram Automatizaciju:</strong> Automatsko upravljanje Instagram direktnim porukama kroz AI asistenta koji može odgovarati na upite, preporučivati usluge i zakazivati termine</li>
+                    <li><strong>AI Analitiku:</strong> Analizu slika, glasovnih poruka i tekstualnih razgovora koristeći modele veštačke inteligencije</li>
+                    <li><strong>Upravljanje Zakazivanjem:</strong> Digitalni kalendar i sistem za rezervacije integrisane sa Instagram konverzacijama</li>
+                    <li><strong>Upravljanje Salonom:</strong> Alatke za upravljanje uslugama, cenama, osobljem, radnim vremenom i posebnim napomenama</li>
+                    <li><strong>Push Notifikacije:</strong> Obaveštenja u realnom vremenu o novim porukama, AI akcijama i događajima zakazivanja</li>
+                    <li><strong>Analitika i Izveštaji:</strong> Uvidi u performanse, trendove zakazivanja i metrike angažovanja klijenata</li>
+                </ul>
+                <p>
+                    Usluga zahteva integraciju sa Meta Platforms (Facebook/Instagram) i koristi usluge trećih strana uključujući OpenAI za AI mogućnosti i AWS za hosting infrastrukturu.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>3. Registracija Naloga i Prihvatljivost</h2>
+                <h3>3.1 Kreiranje Naloga</h3>
+                <p>
+                    Da biste koristili Uslugu, morate kreirati nalog pružajući tačne, potpune i ažurne informacije uključujući:
+                </p>
+                <ul>
+                    <li>Email adresu</li>
+                    <li>Sigurnu lozinku</li>
+                    <li>Poslovne informacije (ime salona, adresa, kontakt detalji)</li>
+                    <li>Instagram Business ili Facebook Page akreditive za povezivanje</li>
+                </ul>
+
+                <h3>3.2 Bezbednost Naloga</h3>
+                <p>Vi ste odgovorni za:</p>
+                <ul>
+                    <li>Održavanje poverljivosti vaših akreditiva za prijavu</li>
+                    <li>Sve aktivnosti koje se dešavaju pod vašim nalogom</li>
+                    <li>Trenutno obaveštavanje nas o bilo kom neovlašćenom korišćenju vašeg naloga</li>
+                    <li>Ograničavanje pristupa vašem nalogu i uređaju</li>
+                </ul>
+
+                <h3>3.3 Tipovi Naloga</h3>
+                <ul>
+                    <li><strong>Vlasnik Naloga:</strong> Puna administrativna prava, upravljanje pretplatom, pristup svim funkcijama</li>
+                    <li><strong>Zaposleni Nalog:</strong> Ograničen pristup kako odredi vlasnik, fokusiran na operativne funkcije</li>
+                </ul>
+
+                <h3>3.4 Ograničenja</h3>
+                <p>
+                    Jedan nalog može biti povezan sa jednim Instagram Business nalogom ili Facebook Page-om po salonu. Svaki salon lokacija zahteva odvojenu pretplatu u skladu sa vašim izabranim planom.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>4. Planovi Pretplate i Plaćanje</h2>
+                <h3>4.1 Planovi Usluge</h3>
+                <p>Nudimo sledeće planove pretplate:</p>
+                <ul>
+                    <li><strong>Početni Plan:</strong> 2,999 RSD/mesečno ili 29,988 RSD/godišnje (ušteda 6,000 RSD) - 1 salon, do 10 usluga, 1 radnik</li>
+                    <li><strong>Profesionalni Plan:</strong> 4,999 RSD/mesečno ili 53,988 RSD/godišnje (ušteda 6,000 RSD) - do 3 salona, neograničene usluge, do 5 radnika, AI analiza slika</li>
+                    <li><strong>Premium Plan:</strong> 6,999 RSD/mesečno ili 77,988 RSD/godišnje (ušteda 6,000 RSD) - neograničeni saloni, neograničeni radnici, napredna analitika, prioritetna podrška</li>
+                </ul>
+
+                <h3>4.2 Naplata i Plaćanje</h3>
+                <ul>
+                    <li>Naplate se obrađuju unapred na mesečnoj ili godišnjoj osnovi u zavisnosti od vašeg izabranog ciklusa naplate</li>
+                    <li>Sve cene su u srpskim dinarima (RSD) i ne uključuju primenljive poreze</li>
+                    <li>Prihvatamo platne kartice (Visa, MasterCard) i druge platne metode kako je dostupno</li>
+                    <li>Automatsko obnavljanje je omogućeno po standardu; možete otkazati u bilo kom trenutku pre sledećeg datuma naplate</li>
+                    <li>Neuspešna plaćanja mogu rezultirati suspenzijom ili ukidanjem usluge</li>
+                </ul>
+
+                <h3>4.3 Promene Cena</h3>
+                <p>
+                    Zadržavamo pravo da modifikujemo cene pretplate sa najmanje 30 dana prethodnog obaveštenja. Promene cena neće uticati na vašu trenutnu pretplatu do sledećeg perioda obnavljanja.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>5. Besplatni Probni Period</h2>
+                <p>
+                    Nudimo 14-dnevni besplatni probni period za nove korisnike. Tokom probnog perioda:
+                </p>
+                <ul>
+                    <li>Imate pristup svim funkcijama vašeg izabranog plana</li>
+                    <li>Nije potrebna platna kartica za početak probnog perioda</li>
+                    <li>Možete otkazati u bilo kom trenutku bez naplate</li>
+                    <li>Ako se ne otkaže, probni period se automatski konvertuje u plaćenu pretplatu</li>
+                    <li>Svaki korisnik/organizacija je prihvatljiva za jedan besplatni probni period</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>6. Odgovornosti i Ponašanje Korisnika</h2>
+                <p>Slažete se da ćete:</p>
+                <ul>
+                    <li>Koristiti Uslugu samo za zakonite poslovne svrhe</li>
+                    <li>Pružiti tačne, trenutne i potpune informacije o vašem salonu i uslugama</li>
+                    <li>Održavati sigurnost vašeg Instagram/Facebook naloga i akreditiva</li>
+                    <li>Poštovati Meta uslove korišćenja i smernice zajednice</li>
+                    <li>Osigurati da su vaši zaposleni obučeni za odgovarajuće korišćenje Platforme</li>
+                    <li>Pregledati i nadgledati AI-generisan sadržaj pre nego što dostigne klijente (gde je primenljivo)</li>
+                    <li>Odgovoriti na upite korisnika i pritužbe na profesionalan način</li>
+                    <li>Poštovati prava intelektualne svojine drugih</li>
+                    <li>Ažurirati podatke o svom salonu kada dođe do promena (usluge, cene, osoblje, radno vreme)</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>7. Zabranjena Korišćenja</h2>
+                <p>Strogo je zabranjeno:</p>
+                <ul>
+                    <li>Koristiti Uslugu za bilo koju nezakonitu ili neovlašćenu svrhu</li>
+                    <li>Pokušati dobiti neovlašćen pristup sistemima ili mrežama povezanim sa Uslugom</li>
+                    <li>Ometati ili remetiti integritet ili performanse Usluge</li>
+                    <li>Pokušati dekompajlirati, dekodirati ili rastaviti bilo koji deo Usluge</li>
+                    <li>Koristiti botove, skrepere ili automatizovane sisteme za pristup Usluzi (osim kako je predviđeno funkcionalnosti)</li>
+                    <li>Učitavati viruse, malware ili bilo koji zlonameran kod</li>
+                    <li>Koristiti Uslugu za slanje neželjenih poruka ili spam-a klijentima</li>
+                    <li>Predstavljati se ili manipulisati identitetom salona ili zaposlenih</li>
+                    <li>Deliti vaš nalog sa neovlašćenim trećim stranama</li>
+                    <li>Prikupljati podatke korisnika bez dozvole</li>
+                    <li>Koristiti Uslugu na načine koji krše Meta pravila ili OpenAI politike prihvatljive upotrebe</li>
+                    <li>Iznajmljivati, lizingovati, prodavati ili preprodavati pristup Usluzi</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>8. Integracija Instagram i Meta</h2>
+                <h3>8.1 Potrebni Preduslovi</h3>
+                <p>
+                    Korišćenje Usluge zahteva važeći Instagram Business nalog povezan sa Facebook Page-om. Vi ste odgovorni za:
+                </p>
+                <ul>
+                    <li>Održavanje odgovarajućih dozvola i ovlašćenja za vaš Instagram nalog</li>
+                    <li>Poštovanje Meta uslova, politika i smernica zajednice</li>
+                    <li>Osiguravanje da vaš nalog ispunjava Meta standarde Instagram Business naloga</li>
+                </ul>
+
+                <h3>8.2 OAuth Autorizacija</h3>
+                <p>
+                    Povezivanjem vašeg Instagram naloga, dajete nam dozvolu da:
+                </p>
+                <ul>
+                    <li>Čitamo i upravljamo Instagram direktnim porukama</li>
+                    <li>Šaljemo poruke u vaše ime</li>
+                    <li>Pristupimo osnovnim informacijama o profilu</li>
+                    <li>Pristupimo uvidu u angažman</li>
+                </ul>
+
+                <h3>8.3 Odricanje Odgovornosti za Meta</h3>
+                <p>
+                    Nismo povezani, odobreni ili podržani od strane Meta Platforms. Promene u Meta API-ju, politikama ili pravilima mogu uticati na funkcionalnost usluge. Ne garantujemo neprekidan pristup Meta servisima.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>9. AI-Generisani Sadržaj</h2>
+                <h3>9.1 Priroda AI Odgovora</h3>
+                <p>
+                    Naša Usluga koristi modele veštačke inteligencije (OpenAI) da generiše odgovore na upite klijenata. Priznajemo da:
+                </p>
+                <ul>
+                    <li>AI odgovori se generišu automatski na osnovu podataka vašeg salona i upita klijenata</li>
+                    <li>AI može povremeno proizvesti netačne, neprikladne ili nesavršene odgovore</li>
+                    <li>Ljudi pregledaju i mogu preuzeti kontrolu razgovora u bilo kom trenutku</li>
+                </ul>
+
+                <h3>9.2 Odgovornost Korisnika</h3>
+                <p>
+                    Vi preuzimate punu odgovornost za:
+                </p>
+                <ul>
+                    <li>Sve poruke poslate klijentima, uključujući AI-generisane odgovore</li>
+                    <li>Osiguravanje tačnosti podataka vašeg salona (usluge, cene, dostupnost)</li>
+                    <li>Nadzor AI razgovora i preuzimanje manuelne kontrole kada je potrebno</li>
+                    <li>Rešavanje bilo kakvih problema ili nesuglasica koje proizađu iz AI komunikacije</li>
+                </ul>
+
+                <h3>9.3 Ograničenja</h3>
+                <p>
+                    Ne garantujemo:
+                </p>
+                <ul>
+                    <li>Tačnost, potpunost ili kvalitet AI-generisanih odgovora</li>
+                    <li>Da će AI razumeti sve upite klijenata pravilno</li>
+                    <li>Da će AI doneti odluke poravnate sa vašim poslovnim preferencama u svakoj situaciji</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>10. Prava Intelektualne Svojine</h2>
+                <h3>10.1 Naša Svojina</h3>
+                <p>
+                    Platforma, uključujući sav softver, dizajn, tekstove, grafike, logotipe, ikone, slike, audio klipove, kompilacije podataka, i osnovni kod su u vlasništvu Bailey Bytes i zaštićeni su zakonima o autorskim pravima, žigovima i intelektualnoj svojini.
+                </p>
+
+                <h3>10.2 Vaš Sadržaj</h3>
+                <p>
+                    Vi zadržavate sva prava na podatke koje postavljate na Platformu uključujući:
+                </p>
+                <ul>
+                    <li>Informacije o salonu i poslovni podaci</li>
+                    <li>Konverzacije sa klijentima</li>
+                    <li>Slike i multimedija učitane od vas ili vaših klijenata</li>
+                    <li>Prilagođeni šabloni i sadržaj</li>
+                </ul>
+
+                <h3>10.3 Licenca Koja Nam Je Data</h3>
+                <p>
+                    Dajete nam neisključivu, globalnu, besplatnu, prenosivu, podlicencibilnu licencu da koristimo, reprodukujemo, modifikujemo i prikazujemo vaš sadržaj isključivo za svrhu pružanja Usluge.
+                </p>
+
+                <h3>10.4 Povratne Informacije</h3>
+                <p>
+                    Sve povratne informacije, sugestije ili ideje koje pružite o Usluzi postaju naše vlasništvo i možemo ih koristiti bez obaveza prema vama.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>11. Usluge Trećih Strana</h2>
+                <p>
+                    Naša Usluga integriše sledeće servise trećih strana:
+                </p>
+                <ul>
+                    <li><strong>Meta Platforms (Facebook/Instagram):</strong> Za Instagram messaging integraciju</li>
+                    <li><strong>OpenAI:</strong> Za AI obradu jezika i generisanje odgovora</li>
+                    <li><strong>Amazon Web Services (AWS):</strong> Za hosting i cloud infrastrukturu</li>
+                    <li><strong>Expo:</strong> Za push notifikacije</li>
+                    <li><strong>Procesori Plaćanja:</strong> Za obradu pretplata i transakcija</li>
+                </ul>
+                <p>
+                    Vaše korišćenje ovih usluga trećih strana podleže njihovim odvojenim uslovima i politikama. Nismo odgovorni za prakse ili performanse ovih trećih strana.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>12. Dostupnost Usluge i Modifikacije</h2>
+                <h3>12.1 Dostupnost</h3>
+                <p>
+                    Trudimo se da održimo Uslugu dostupnom 24/7, ali ne garantujemo neprekinut ili bezgreška pristup. Usluga može biti nedostupna zbog:
+                </p>
+                <ul>
+                    <li>Planiranog održavanja (najavljeno unapred kada je to moguće)</li>
+                    <li>Hitnih održavanja ili bezbednosnih zakrpa</li>
+                    <li>Problema sa mrežom ili servera van naše kontrole</li>
+                    <li>Prekida servisa trećih strana (Meta, AWS, OpenAI)</li>
+                    <li>Viših sila ili drugih nepredvidivih okolnosti</li>
+                </ul>
+
+                <h3>12.2 Modifikacije Usluge</h3>
+                <p>
+                    Zadržavamo pravo da:
+                </p>
+                <ul>
+                    <li>Modifikujemo, suspendujemo ili prekidamo bilo koji aspekt Usluge</li>
+                    <li>Dodamo ili uklonimo funkcije</li>
+                    <li>Ograničimo ili obustavimo pristup određenim korisnicima</li>
+                    <li>Promenimo tehničke specifikacije ili sistemske zahteve</li>
+                </ul>
+                <p>
+                    Obaveštavamo o značajnim promenama najmanje 30 dana unapred kada je praktično.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>13. Bezbednost Podataka</h2>
+                <p>
+                    Primenjujemo industrijsko-standardne bezbednosne mere uključujući:
+                </p>
+                <ul>
+                    <li>Enkripciju u tranzitu (TLS/HTTPS) i u mirovanju</li>
+                    <li>Kontrole pristupa zasnovane na ulogama</li>
+                    <li>Redovno praćenje bezbednosti i revizije</li>
+                    <li>Backup sistem podataka</li>
+                    <li>Plan odgovora na incidente</li>
+                </ul>
+                <p>
+                    Međutim, nijedan sistem nije potpuno bezbedan. Ne možemo garantovati apsolutnu bezbednost vaših podataka. Detalji su pruženi u našoj <a href="privacy-policy.html">Politici Privatnosti</a>.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>14. Garancije i Odricanja Odgovornosti</h2>
+                <div class="important-notice">
+                    <p><strong>USLUGA JE PRUŽENA "TAKVA KAKVA JESTE" I "KAKO JE DOSTUPNA" BEZ GARANCIJA BILO KOJE VRSTE.</strong></p>
+                </div>
+                <p>
+                    U maksimalnom obimu dozvoljenom primenjivim zakonima, ISKLJUČUJEMO SVE GARANCIJE, IZRIČITE ILI IMPLICITIRANE, UKLJUČUJUĆI ALI NE OGRANIČAVAJUĆI SE NA:
+                </p>
+                <ul>
+                    <li>Implicitirane garancije trgovačke podobnosti, prikladnosti za određenu svrhu, ili nepovredi</li>
+                    <li>Da će Usluga biti neprekinuta, bezbedna, bezgreška ili bez virusa</li>
+                    <li>Tačnost, pouzdanost ili potpunost AI-generisanog sadržaja</li>
+                    <li>Da će Usluga ispuniti vaše poslovne zahteve ili očekivanja</li>
+                    <li>Da će integracije trećih strana (Meta, OpenAI) funkcionisati stalno</li>
+                </ul>
+                <p>
+                    Koristite Uslugu na sopstveni rizik i diskreciju.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>15. Ograničenje Odgovornosti</h2>
+                <div class="important-notice">
+                    <p><strong>U MAKSIMALNOM OBIMU DOZVOLJENOM ZAKONOM, BAILEY BYTES NEĆE BITI ODGOVORAN ZA:</strong></p>
+                </div>
+                <ul>
+                    <li>Bilo kakve indirektne, slučajne, posebne, posledične ili kazne štete</li>
+                    <li>Gubitak profita, prihoda, podataka, goodwill-a ili drugih nematerijalnih gubitaka</li>
+                    <li>Štetu koja proizilazi iz AI grešaka, netačnih odgovora ili odluka o zakazivanju</li>
+                    <li>Neovlašćen pristup vašem nalogu ili narušavanje podataka</li>
+                    <li>Prekide servisa ili greške</li>
+                    <li>Ponašanje ili sadržaj trećih strana (uključujući Meta, OpenAI)</li>
+                    <li>Gubitke zbog neuspešnih plaćanja ili problema sa naplatom</li>
+                    <li>Bilo koju štetu koja proizilazi iz vašeg korišćenja ili nemogućnosti korišćenja Usluge</li>
+                </ul>
+                <p>
+                    NAŠA UKUPNA ODGOVORNOST ZA SVE ZAHTEVE NEĆE PREKORAČITI IZNOS KOJI STE PLATILI U POSLEDNJA 3 MESECA, ILI 10,000 RSD, KOJA GOD JE VEĆA.
+                </p>
+                <p>
+                    Neke jurisdikcije ne dozvoljavaju ograničenja implicitirane garancije ili odgovornosti, tako da gornji ograničenja možda neće biti primenljiva na vas.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>16. Obeštećenje</h2>
+                <p>
+                    Slažete se da odštitite, obeštitite i držite Bailey Bytes, njene podružnice, partnere, rukovodstvo, direktore, zaposlene i agente neškodljivim od bilo kakvih zahteva, šteta, obaveza, gubitaka, troškova ili dugova, i troškova (uključujući pravne honorare) koji proizilaze iz:
+                </p>
+                <ul>
+                    <li>Vašeg korišćenja ili zloupotrebe Usluge</li>
+                    <li>Vašeg kršenja ovih Uslova</li>
+                    <li>Vašeg kršenja bilo kakvih prava trećih strana</li>
+                    <li>Sadržaja koji postavljate ili delite kroz Uslugu</li>
+                    <li>AI-generisanih poruka poslanih vašim klijentima</li>
+                    <li>Spora ili problema između vas i vaših klijenata</li>
+                    <li>Vašeg kršenja Meta ili OpenAI politika</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>17. Ukidanje i Suspenzija</h2>
+                <h3>17.1 Ukidanje od Strane Vas</h3>
+                <p>
+                    Možete otkazati vašu pretplatu u bilo kom trenutku kroz:
+                </p>
+                <ul>
+                    <li>Podešavanja naloga u mobilnoj aplikaciji</li>
+                    <li>Kontaktiranje naše podrške na <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></li>
+                </ul>
+                <p>
+                    Otkazivanje stupa na snagu na kraju vašeg trenutnog fakturisanog perioda. Pristup se nastavlja do tog datuma.
+                </p>
+
+                <h3>17.2 Ukidanje od Strane Nas</h3>
+                <p>
+                    Možemo suspendovati ili ukinuti vaš pristup odmah, bez prethodnog obaveštenja, ako:
+                </p>
+                <ul>
+                    <li>Kršite ove Uslove</li>
+                    <li>Vaša plaćanja stalno kasne ili neuspešna</li>
+                    <li>Angažujete se u fraudulentnoj ili nezakonitoj aktivnosti</li>
+                    <li>Zloupotrebljavate Uslugu na načine koji štete drugim korisnicima ili našoj infrastrukturi</li>
+                    <li>Vaš Instagram nalog bude suspendovan ili ukinut od strane Meta</li>
+                    <li>Po nalogu zakona ili regulatornih tela</li>
+                </ul>
+
+                <h3>17.3 Efekti Ukidanja</h3>
+                <p>
+                    Nakon ukidanja:
+                </p>
+                <ul>
+                    <li>Vaš pristup Usluzi i svim podacima će prestati</li>
+                    <li>Vaši podaci će biti zadržani u skladu sa našom Politikom Privatnosti (obično 30 dana)</li>
+                    <li>Nećete imati pravo na povraćaj sredstava za preostali deo vašeg fakturisanog perioda (osim ako nije drugačije zakonom zahtevano)</li>
+                    <li>Sve Instagram integracije biće odvojene</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>18. Politika Povraćaja Sredstava</h2>
+                <p>
+                    Zbog prirode naših softverskih usluga, generalno ne nudimo povraćaj sredstava nakon što pretplata postane aktivna. Međutim:
+                </p>
+                <ul>
+                    <li><strong>Besplatni Probni Period:</strong> Možete otkazati tokom 14-dnevnog probnog perioda bez naplate</li>
+                    <li><strong>Greške u Naplati:</strong> Ako smo prekomerno naplatili ili pogrešno naplatili, izdaćemo punu povraćaj sredstava</li>
+                    <li><strong>Produženi Prekidi:</strong> Ako Usluga bude nedostupna više od 48 uzastopnih sati zbog problema na našoj strani, možete biti prihvatljivi za proporcionalni kredit</li>
+                    <li><strong>Diskrecioni Povraćaj:</strong> Možemo po našoj diskreciji razmotriti povraćaj sredstava slučaj po slučaj</li>
+                </ul>
+                <p>
+                    Svi zahtevi za povraćaj sredstava moraju biti podneseni u roku od 30 dana od naplate.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>19. Primenljivi Zakon i Rešavanje Sporova</h2>
+                <h3>19.1 Primenljivi Zakon</h3>
+                <p>
+                    Ovi Uslovi se regulišu zakonima Republike Srbije, bez obzira na njihove odredbe o sukobima zakona.
+                </p>
+
+                <h3>19.2 Rešavanje Sporova</h3>
+                <p>
+                    Bilo kakav spor koji proizilazi iz ili se odnosi na ove Uslove biće rešen kroz:
+                </p>
+                <ol>
+                    <li><strong>Neformalni Pregovori:</strong> Prvo, pokušajte razrešiti spor kontaktiranjem nas na <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></li>
+                    <li><strong>Medijacija:</strong> Ako se ne reši u roku od 30 dana, obavezujemo se da učestvujemo u medijaciji u dobroj veri</li>
+                    <li><strong>Nadležnost Suda:</strong> Ako medijacija ne uspe, sporovi će biti podneseni ekskluzivnoj nadležnosti sudova u Novom Sadu, Srbija</li>
+                </ol>
+
+                <h3>19.3 Odricanje Grupne Tužbe</h3>
+                <p>
+                    Vi se slažete da iznesete zahteve protiv nas samo u vašem individualnom kapacitetu, a ne kao tužilac ili član grupe u bilo kakvoj navodnoj grupnoj tužbi, kolektivnoj akciji ili reprezentativnom postupku.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>20. Promene Uslova</h2>
+                <p>
+                    Možemo revidirati ove Uslove s vremena na vreme. Kada to uradimo:
+                </p>
+                <ul>
+                    <li>Revidiraćemo datum "Poslednje ažuriranje" na vrhu</li>
+                    <li>Objavićemo izmenjene Uslove na našoj web stranici</li>
+                    <li>Poslati email obaveštenje za značajne promene</li>
+                    <li>Možemo prikazati notifikaciju u aplikaciji</li>
+                </ul>
+                <p>
+                    Vaše nastavno korišćenje Usluge nakon stupanja na snagu izmena predstavlja vaše prihvatanje izmenjenih Uslova. Ako se ne slažete sa promenama, morate prekinuti korišćenje Usluge i otkazati vaš nalog.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>21. Razdvajanje</h2>
+                <p>
+                    Ako bilo koja odredba ovih Uslova bude smatrana nezakonitom, nevažećom ili neizvršivom, ta odredba će biti prinudno sprovedena u maksimalnoj meri dozvoljenoj, a preostale odredbe će ostati na punoj snazi.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>22. Cela Sporazum</h2>
+                <p>
+                    Ovi Uslovi, zajedno sa našom Politikom Privatnosti, predstavljaju celokupan sporazum između vas i Bailey Bytes u vezi sa Uslugom i zamenjuju sve prethodne sporazume, razumevanja i pregovore.
+                </p>
+            </div>
+
+            <div class="terms-section lang-sr">
+                <h2>23. Kontaktirajte Nas</h2>
+                <p>
+                    Za pitanja, komentare ili brige u vezi ovih Uslova, molimo kontaktirajte:
+                </p>
+                <div class="contact-box">
+                    <p><strong>Bailey Bytes</strong></p>
+                    <p>Sedište: Novi Sad, Srbija</p>
+                    <p>Email: <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></p>
+                    <p>Website: <a href="index.html">luma.flows.social</a></p>
+                </div>
+                <p style="margin-top: 20px;">
+                    Pružajući Uslugu odgovarajuće podrške, imamo za cilj da odgovorimo na sve upite u roku od 48 sati.
+                </p>
+            </div>
+
+            <!-- English Content -->
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    Welcome to Luma! These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", "your") and Bailey Bytes ("Company", "we", "our"), a registered company in Serbia with its headquarters in Novi Sad.
+                </p>
+                <p>
+                    By accessing, registering for, or using the Luma mobile application, Instagram Beauty Bot backend, or any related service (collectively, the "Service" or "Platform"), you acknowledge that:
+                </p>
+                <ul>
+                    <li>You are at least 18 years old or of legal age in your jurisdiction</li>
+                    <li>You have the legal authority to accept these Terms on behalf of your organization (if registering on behalf of a salon or business)</li>
+                    <li>You have read, understood, and agree to be bound by these Terms and our <a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li>Your use of the Service complies with all applicable local, state, national, and international laws and regulations</li>
+                </ul>
+                <div class="important-notice">
+                    <p><strong>IMPORTANT:</strong> If you do not accept these Terms in their entirety, you must not access or use the Service.</p>
+                </div>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>2. Description of Service</h2>
+                <p>
+                    Luma is an AI-powered software-as-a-service (SaaS) platform designed for beauty salon owners and staff. The Platform enables:
+                </p>
+                <ul>
+                    <li><strong>Instagram Automation:</strong> Automatic management of Instagram direct messages through an AI assistant that can respond to inquiries, recommend services, and schedule appointments</li>
+                    <li><strong>AI Analytics:</strong> Analysis of images, voice messages, and text conversations using artificial intelligence models</li>
+                    <li><strong>Scheduling Management:</strong> Digital calendar and booking system integrated with Instagram conversations</li>
+                    <li><strong>Salon Management:</strong> Tools for managing services, pricing, staff, business hours, and special notes</li>
+                    <li><strong>Push Notifications:</strong> Real-time alerts about new messages, AI actions, and booking events</li>
+                    <li><strong>Analytics and Reports:</strong> Insights into performance, booking trends, and client engagement metrics</li>
+                </ul>
+                <p>
+                    The Service requires integration with Meta Platforms (Facebook/Instagram) and utilizes third-party services including OpenAI for AI capabilities and AWS for hosting infrastructure.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>3. Account Registration and Eligibility</h2>
+                <h3>3.1 Account Creation</h3>
+                <p>
+                    To use the Service, you must create an account by providing accurate, complete, and current information including:
+                </p>
+                <ul>
+                    <li>Email address</li>
+                    <li>Secure password</li>
+                    <li>Business information (salon name, address, contact details)</li>
+                    <li>Instagram Business or Facebook Page credentials for connection</li>
+                </ul>
+
+                <h3>3.2 Account Security</h3>
+                <p>You are responsible for:</p>
+                <ul>
+                    <li>Maintaining the confidentiality of your login credentials</li>
+                    <li>All activities that occur under your account</li>
+                    <li>Promptly notifying us of any unauthorized use of your account</li>
+                    <li>Restricting access to your account and device</li>
+                </ul>
+
+                <h3>3.3 Account Types</h3>
+                <ul>
+                    <li><strong>Owner Account:</strong> Full administrative rights, subscription management, access to all features</li>
+                    <li><strong>Employee Account:</strong> Limited access as determined by owner, focused on operational features</li>
+                </ul>
+
+                <h3>3.4 Limitations</h3>
+                <p>
+                    One account may be connected to one Instagram Business account or Facebook Page per salon. Each salon location requires a separate subscription according to your chosen plan.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>4. Subscription Plans and Payment</h2>
+                <h3>4.1 Service Plans</h3>
+                <p>We offer the following subscription plans:</p>
+                <ul>
+                    <li><strong>Starter Plan:</strong> 2,999 RSD/month or 29,988 RSD/year (save 6,000 RSD) - 1 salon, up to 10 services, 1 staff member</li>
+                    <li><strong>Professional Plan:</strong> 4,999 RSD/month or 53,988 RSD/year (save 6,000 RSD) - up to 3 salons, unlimited services, up to 5 staff, AI image analysis</li>
+                    <li><strong>Premium Plan:</strong> 6,999 RSD/month or 77,988 RSD/year (save 6,000 RSD) - unlimited salons, unlimited staff, advanced analytics, priority support</li>
+                </ul>
+
+                <h3>4.2 Billing and Payment</h3>
+                <ul>
+                    <li>Charges are processed in advance on a monthly or annual basis depending on your selected billing cycle</li>
+                    <li>All prices are in Serbian Dinars (RSD) and exclude applicable taxes</li>
+                    <li>We accept payment cards (Visa, MasterCard) and other payment methods as available</li>
+                    <li>Auto-renewal is enabled by default; you may cancel at any time before your next billing date</li>
+                    <li>Failed payments may result in service suspension or termination</li>
+                </ul>
+
+                <h3>4.3 Price Changes</h3>
+                <p>
+                    We reserve the right to modify subscription pricing with at least 30 days' prior notice. Price changes will not affect your current subscription until the next renewal period.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>5. Free Trial Period</h2>
+                <p>
+                    We offer a 14-day free trial for new users. During the trial period:
+                </p>
+                <ul>
+                    <li>You have access to all features of your selected plan</li>
+                    <li>No payment card is required to start the trial</li>
+                    <li>You may cancel at any time without charge</li>
+                    <li>If not cancelled, the trial automatically converts to a paid subscription</li>
+                    <li>Each user/organization is eligible for one free trial</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>6. User Responsibilities and Conduct</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the Service only for lawful business purposes</li>
+                    <li>Provide accurate, current, and complete information about your salon and services</li>
+                    <li>Maintain the security of your Instagram/Facebook account and credentials</li>
+                    <li>Comply with Meta's terms of service and community guidelines</li>
+                    <li>Ensure your staff are trained in proper use of the Platform</li>
+                    <li>Review and monitor AI-generated content before it reaches clients (where applicable)</li>
+                    <li>Respond to customer inquiries and complaints in a professional manner</li>
+                    <li>Respect the intellectual property rights of others</li>
+                    <li>Update your salon data when changes occur (services, prices, staff, hours)</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>7. Prohibited Uses</h2>
+                <p>You are strictly prohibited from:</p>
+                <ul>
+                    <li>Using the Service for any illegal or unauthorized purpose</li>
+                    <li>Attempting to gain unauthorized access to systems or networks connected to the Service</li>
+                    <li>Interfering with or disrupting the integrity or performance of the Service</li>
+                    <li>Attempting to decompile, decode, or disassemble any part of the Service</li>
+                    <li>Using bots, scrapers, or automated systems to access the Service (except as intended by functionality)</li>
+                    <li>Uploading viruses, malware, or any malicious code</li>
+                    <li>Using the Service to send unsolicited messages or spam to clients</li>
+                    <li>Impersonating or misrepresenting salon or staff identity</li>
+                    <li>Sharing your account with unauthorized third parties</li>
+                    <li>Collecting user data without permission</li>
+                    <li>Using the Service in ways that violate Meta policies or OpenAI acceptable use policies</li>
+                    <li>Renting, leasing, selling, or reselling access to the Service</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>8. Instagram and Meta Integration</h2>
+                <h3>8.1 Required Prerequisites</h3>
+                <p>
+                    Using the Service requires a valid Instagram Business account connected to a Facebook Page. You are responsible for:
+                </p>
+                <ul>
+                    <li>Maintaining proper permissions and authorizations for your Instagram account</li>
+                    <li>Complying with Meta's terms, policies, and community guidelines</li>
+                    <li>Ensuring your account meets Meta's Instagram Business account standards</li>
+                </ul>
+
+                <h3>8.2 OAuth Authorization</h3>
+                <p>
+                    By connecting your Instagram account, you grant us permission to:
+                </p>
+                <ul>
+                    <li>Read and manage Instagram direct messages</li>
+                    <li>Send messages on your behalf</li>
+                    <li>Access basic profile information</li>
+                    <li>Access engagement insights</li>
+                </ul>
+
+                <h3>8.3 Meta Disclaimer</h3>
+                <p>
+                    We are not affiliated with, endorsed by, or sponsored by Meta Platforms. Changes to Meta's API, policies, or rules may affect service functionality. We do not guarantee uninterrupted access to Meta services.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>9. AI-Generated Content</h2>
+                <h3>9.1 Nature of AI Responses</h3>
+                <p>
+                    Our Service uses artificial intelligence models (OpenAI) to generate responses to client inquiries. We acknowledge that:
+                </p>
+                <ul>
+                    <li>AI responses are generated automatically based on your salon data and client queries</li>
+                    <li>AI may occasionally produce inaccurate, inappropriate, or imperfect responses</li>
+                    <li>Human review and takeover of conversations is possible at any time</li>
+                </ul>
+
+                <h3>9.2 User Responsibility</h3>
+                <p>
+                    You assume full responsibility for:
+                </p>
+                <ul>
+                    <li>All messages sent to clients, including AI-generated responses</li>
+                    <li>Ensuring accuracy of your salon data (services, prices, availability)</li>
+                    <li>Monitoring AI conversations and taking manual control when necessary</li>
+                    <li>Resolving any issues or disputes arising from AI communication</li>
+                </ul>
+
+                <h3>9.3 Limitations</h3>
+                <p>
+                    We do not guarantee:
+                </p>
+                <ul>
+                    <li>Accuracy, completeness, or quality of AI-generated responses</li>
+                    <li>That AI will understand all client queries correctly</li>
+                    <li>That AI will make decisions aligned with your business preferences in every situation</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>10. Intellectual Property Rights</h2>
+                <h3>10.1 Our Property</h3>
+                <p>
+                    The Platform, including all software, design, text, graphics, logos, icons, images, audio clips, data compilations, and underlying code are owned by Bailey Bytes and protected by copyright, trademark, and intellectual property laws.
+                </p>
+
+                <h3>10.2 Your Content</h3>
+                <p>
+                    You retain all rights to data you upload to the Platform including:
+                </p>
+                <ul>
+                    <li>Salon information and business data</li>
+                    <li>Client conversations</li>
+                    <li>Images and media uploaded by you or your clients</li>
+                    <li>Custom templates and content</li>
+                </ul>
+
+                <h3>10.3 License Granted to Us</h3>
+                <p>
+                    You grant us a non-exclusive, worldwide, royalty-free, transferable, sub-licensable license to use, reproduce, modify, and display your content solely for the purpose of providing the Service.
+                </p>
+
+                <h3>10.4 Feedback</h3>
+                <p>
+                    Any feedback, suggestions, or ideas you provide about the Service become our property and we may use them without obligation to you.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>11. Third-Party Services</h2>
+                <p>
+                    Our Service integrates the following third-party services:
+                </p>
+                <ul>
+                    <li><strong>Meta Platforms (Facebook/Instagram):</strong> For Instagram messaging integration</li>
+                    <li><strong>OpenAI:</strong> For AI language processing and response generation</li>
+                    <li><strong>Amazon Web Services (AWS):</strong> For hosting and cloud infrastructure</li>
+                    <li><strong>Expo:</strong> For push notifications</li>
+                    <li><strong>Payment Processors:</strong> For subscription and transaction processing</li>
+                </ul>
+                <p>
+                    Your use of these third-party services is subject to their separate terms and policies. We are not responsible for the practices or performance of these third parties.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>12. Service Availability and Modifications</h2>
+                <h3>12.1 Availability</h3>
+                <p>
+                    We strive to maintain the Service available 24/7, but do not guarantee uninterrupted or error-free access. The Service may be unavailable due to:
+                </p>
+                <ul>
+                    <li>Scheduled maintenance (announced in advance when possible)</li>
+                    <li>Emergency maintenance or security patches</li>
+                    <li>Network or server problems beyond our control</li>
+                    <li>Third-party service interruptions (Meta, AWS, OpenAI)</li>
+                    <li>Force majeure or other unforeseen circumstances</li>
+                </ul>
+
+                <h3>12.2 Service Modifications</h3>
+                <p>
+                    We reserve the right to:
+                </p>
+                <ul>
+                    <li>Modify, suspend, or discontinue any aspect of the Service</li>
+                    <li>Add or remove features</li>
+                    <li>Limit or suspend access to certain users</li>
+                    <li>Change technical specifications or system requirements</li>
+                </ul>
+                <p>
+                    We will provide notice of significant changes at least 30 days in advance when practical.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>13. Data Security</h2>
+                <p>
+                    We implement industry-standard security measures including:
+                </p>
+                <ul>
+                    <li>Encryption in transit (TLS/HTTPS) and at rest</li>
+                    <li>Role-based access controls</li>
+                    <li>Regular security monitoring and audits</li>
+                    <li>Data backup systems</li>
+                    <li>Incident response plan</li>
+                </ul>
+                <p>
+                    However, no system is completely secure. We cannot guarantee absolute security of your data. Details are provided in our <a href="privacy-policy.html">Privacy Policy</a>.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>14. Warranties and Disclaimers</h2>
+                <div class="important-notice">
+                    <p><strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</strong></p>
+                </div>
+                <p>
+                    TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+                </p>
+                <ul>
+                    <li>Implied warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
+                    <li>That the Service will be uninterrupted, secure, error-free, or virus-free</li>
+                    <li>Accuracy, reliability, or completeness of AI-generated content</li>
+                    <li>That the Service will meet your business requirements or expectations</li>
+                    <li>That third-party integrations (Meta, OpenAI) will function continuously</li>
+                </ul>
+                <p>
+                    You use the Service at your own risk and discretion.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>15. Limitation of Liability</h2>
+                <div class="important-notice">
+                    <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, BAILEY BYTES SHALL NOT BE LIABLE FOR:</strong></p>
+                </div>
+                <ul>
+                    <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                    <li>Loss of profits, revenue, data, goodwill, or other intangible losses</li>
+                    <li>Damages arising from AI errors, inaccurate responses, or booking decisions</li>
+                    <li>Unauthorized access to your account or data breaches</li>
+                    <li>Service interruptions or errors</li>
+                    <li>Third-party conduct or content (including Meta, OpenAI)</li>
+                    <li>Losses due to failed payments or billing issues</li>
+                    <li>Any damages arising from your use or inability to use the Service</li>
+                </ul>
+                <p>
+                    OUR TOTAL LIABILITY FOR ALL CLAIMS SHALL NOT EXCEED THE AMOUNT YOU PAID IN THE LAST 3 MONTHS, OR 10,000 RSD, WHICHEVER IS GREATER.
+                </p>
+                <p>
+                    Some jurisdictions do not allow limitations on implied warranties or liability, so the above limitations may not apply to you.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>16. Indemnification</h2>
+                <p>
+                    You agree to defend, indemnify, and hold Bailey Bytes, its affiliates, partners, officers, directors, employees, and agents harmless from any claims, damages, obligations, losses, costs, or debt, and expenses (including legal fees) arising from:
+                </p>
+                <ul>
+                    <li>Your use or misuse of the Service</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any third-party rights</li>
+                    <li>Content you upload or share through the Service</li>
+                    <li>AI-generated messages sent to your clients</li>
+                    <li>Disputes or issues between you and your clients</li>
+                    <li>Your violation of Meta or OpenAI policies</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>17. Termination and Suspension</h2>
+                <h3>17.1 Termination by You</h3>
+                <p>
+                    You may cancel your subscription at any time through:
+                </p>
+                <ul>
+                    <li>Account settings in the mobile app</li>
+                    <li>Contacting our support at <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></li>
+                </ul>
+                <p>
+                    Cancellation takes effect at the end of your current billing period. Access continues until that date.
+                </p>
+
+                <h3>17.2 Termination by Us</h3>
+                <p>
+                    We may suspend or terminate your access immediately, without prior notice, if:
+                </p>
+                <ul>
+                    <li>You violate these Terms</li>
+                    <li>Your payments are consistently late or failed</li>
+                    <li>You engage in fraudulent or illegal activity</li>
+                    <li>You misuse the Service in ways that harm other users or our infrastructure</li>
+                    <li>Your Instagram account is suspended or terminated by Meta</li>
+                    <li>Required by law or regulatory bodies</li>
+                </ul>
+
+                <h3>17.3 Effects of Termination</h3>
+                <p>
+                    Upon termination:
+                </p>
+                <ul>
+                    <li>Your access to the Service and all data will cease</li>
+                    <li>Your data will be retained in accordance with our Privacy Policy (typically 30 days)</li>
+                    <li>You will not be entitled to refunds for the remainder of your billing period (unless otherwise required by law)</li>
+                    <li>All Instagram integrations will be disconnected</li>
+                </ul>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>18. Refund Policy</h2>
+                <p>
+                    Due to the nature of our software services, we generally do not provide refunds after a subscription becomes active. However:
+                </p>
+                <ul>
+                    <li><strong>Free Trial Period:</strong> You may cancel during the 14-day trial without charge</li>
+                    <li><strong>Billing Errors:</strong> If we overcharged or incorrectly billed you, we will issue a full refund</li>
+                    <li><strong>Extended Outages:</strong> If the Service is unavailable for more than 48 consecutive hours due to issues on our end, you may be eligible for a prorated credit</li>
+                    <li><strong>Discretionary Refunds:</strong> We may at our discretion consider refunds on a case-by-case basis</li>
+                </ul>
+                <p>
+                    All refund requests must be submitted within 30 days of the charge.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>19. Governing Law and Dispute Resolution</h2>
+                <h3>19.1 Governing Law</h3>
+                <p>
+                    These Terms are governed by the laws of the Republic of Serbia, without regard to its conflict of law provisions.
+                </p>
+
+                <h3>19.2 Dispute Resolution</h3>
+                <p>
+                    Any dispute arising from or relating to these Terms shall be resolved through:
+                </p>
+                <ol>
+                    <li><strong>Informal Negotiation:</strong> First, attempt to resolve the dispute by contacting us at <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></li>
+                    <li><strong>Mediation:</strong> If not resolved within 30 days, we commit to participate in good-faith mediation</li>
+                    <li><strong>Court Jurisdiction:</strong> If mediation fails, disputes will be submitted to the exclusive jurisdiction of the courts in Novi Sad, Serbia</li>
+                </ol>
+
+                <h3>19.3 Class Action Waiver</h3>
+                <p>
+                    You agree to bring claims against us only in your individual capacity, and not as a plaintiff or class member in any purported class action, collective action, or representative proceeding.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>20. Changes to Terms</h2>
+                <p>
+                    We may revise these Terms from time to time. When we do:
+                </p>
+                <ul>
+                    <li>We will revise the "Last updated" date at the top</li>
+                    <li>Post the amended Terms on our website</li>
+                    <li>Send email notification for material changes</li>
+                    <li>May display an in-app notification</li>
+                </ul>
+                <p>
+                    Your continued use of the Service after the effective date of amendments constitutes your acceptance of the amended Terms. If you disagree with changes, you must stop using the Service and cancel your account.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>21. Severability</h2>
+                <p>
+                    If any provision of these Terms is deemed unlawful, void, or unenforceable, that provision shall be enforced to the maximum extent permissible, and the remaining provisions shall remain in full force and effect.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>22. Entire Agreement</h2>
+                <p>
+                    These Terms, together with our Privacy Policy, constitute the entire agreement between you and Bailey Bytes regarding the Service and supersede all prior agreements, understandings, and negotiations.
+                </p>
+            </div>
+
+            <div class="terms-section lang-en" style="display: none;">
+                <h2>23. Contact Us</h2>
+                <p>
+                    For questions, comments, or concerns about these Terms, please contact:
+                </p>
+                <div class="contact-box">
+                    <p><strong>Bailey Bytes</strong></p>
+                    <p>Headquarters: Novi Sad, Serbia</p>
+                    <p>Email: <a href="mailto:info@baileybytes.com">info@baileybytes.com</a></p>
+                    <p>Website: <a href="index.html">www.luma-app.com</a></p>
+                </div>
+                <p style="margin-top: 20px;">
+                    By providing appropriate support Service, we aim to respond to all inquiries within 48 hours.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/luma-white.png" alt="Luma Logo" class="footer-logo-img">
+                    </div>
+                    <p data-sr="AI-powered Instagram automatizacija za salone lepote" data-en="AI-powered Instagram automation for beauty salons">AI-powered Instagram automatizacija za salone lepote</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-sr="Proizvod" data-en="Product">Proizvod</h4>
+                        <ul>
+                            <li><a href="index.html#features" data-sr="Funkcije" data-en="Features">Funkcije</a></li>
+                            <li><a href="index.html#pricing" data-sr="Cene" data-en="Pricing">Cene</a></li>
+                            <li><a href="#" data-sr="Integracije" data-en="Integrations">Integracije</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-sr="Podrška" data-en="Support">Podrška</h4>
+                        <ul>
+                            <li><a href="#" data-sr="Centar za pomoć" data-en="Help Center">Centar za pomoć</a></li>
+                            <li><a href="index.html#contact" data-sr="Kontaktirajte nas" data-en="Contact us">Kontaktirajte nas</a></li>
+                            <li><a href="#" data-sr="Status" data-en="Status">Status</a></li>
+                            <li><a href="#" data-sr="Zajednica" data-en="Community">Zajednica</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-sr="Kompanija" data-en="Company">Kompanija</h4>
+                        <ul>
+                            <li><a href="#" data-sr="O nama" data-en="About">O nama</a></li>
+                            <li><a href="#" data-sr="Blog" data-en="Blog">Blog</a></li>
+                            <li><a href="#" data-sr="Karijere" data-en="Careers">Karijere</a></li>
+                            <li><a href="privacy-policy.html" data-sr="Politika Privatnosti" data-en="Privacy Policy">Politika Privatnosti</a></li>
+                            <li><a href="terms-of-service.html" data-sr="Uslovi Korišćenja" data-en="Terms of Service">Uslovi Korišćenja</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Luma. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switching for Terms of Service
+        let currentLang = localStorage.getItem('language') || 'en';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langOptions = document.querySelectorAll('.lang-option');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            // Set initial language
+            setLanguage(currentLang);
+
+            // Add click event to language options
+            langOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const selectedLang = option.getAttribute('data-lang');
+                    setLanguage(selectedLang);
+                });
+            });
+
+            // Mobile menu toggle
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        });
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update active state
+            document.querySelectorAll('.lang-option').forEach(option => {
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+
+            // Update content
+            updateContent(lang);
+        }
+
+        function updateContent(lang) {
+            // Update all elements with data-sr and data-en attributes
+            document.querySelectorAll('[data-sr][data-en]').forEach(element => {
+                const text = lang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-sr');
+                element.textContent = text;
+            });
+
+            // Show/hide language-specific sections
+            document.querySelectorAll('.lang-sr').forEach(section => {
+                section.style.display = lang === 'sr' ? 'block' : 'none';
+            });
+
+            document.querySelectorAll('.lang-en').forEach(section => {
+                section.style.display = lang === 'en' ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
